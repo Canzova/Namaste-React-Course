@@ -17,7 +17,7 @@
 - Bundling
 - Compression
 - Differential Building : Support different versions of browsers
-- Error handling
+- Error handling : Shows error beautifully
 - Consistent Hashing : This enables long-term browser caching, Parcel automatically includes content hashes in the names of all output files, which enables long-term browser caching. Whenever the contents of a bundle changes, the hash included in the filename will be updated, triggering invalidation of CDN and browser caches.
 - Different dev and prod bundles
 - Remove whitespaces, un-necessory comments, newlines
