@@ -1,0 +1,23 @@
+# Parcel
+
+- Dev Server : dist
+- Prodyction Server
+- Hot Reloading using HMR(Hot Module Replacement) : Automatically refreshing your page
+- Lazy Mode 
+- Caching : Faster Builts
+- HTTPS
+- File Wacher algo written in c++
+- Auto install
+- Code Splitting
+- Tree Shaking : Remove un-used code
+- Shared Bundles : When multiple parts of your application depend on the same common modules, they are automatically deduplicated into a separate bundle. 
+- Dignostics
+- Minification
+- Image Optimization
+- Bundling
+- Compression
+- Differential Building : Support different versions of browsers
+- Error handling
+- Consistent Hashing : This enables long-term browser caching, Parcel automatically includes content hashes in the names of all output files, which enables long-term browser caching. Whenever the contents of a bundle changes, the hash included in the filename will be updated, triggering invalidation of CDN and browser caches.
+- Different dev and prod bundles
+- Remove whitespaces, un-necessory comments, newlines
