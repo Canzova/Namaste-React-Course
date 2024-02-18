@@ -1,6 +1,6 @@
 # Episode 06 - Exploring the world
 
-## Why onClick={update()} won't work ??
+## Why onClick={update()} won't work ?
 
 - In JavaScript and React, when you use `onClick={update()}`, it means that the `update` function is immediately invoked when the component renders. This is not what you typically want for event handlers in React.
 
