@@ -22,7 +22,7 @@ const Body = () => {
       </div>
       <div className="rest-container">
         {topRestaurants.map((resturant) => {
-          return <RestCard key={restList.info?.id} restInfo={resturant} />;
+          return <RestCard key={resturant.info?.id} restInfo={resturant} />;
         })}
       </div>
     </div>
