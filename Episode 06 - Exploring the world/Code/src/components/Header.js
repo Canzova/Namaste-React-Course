@@ -7,8 +7,13 @@ import { IoMdHelpCircle } from "react-icons/io";
 import { BiSolidOffer } from "react-icons/bi";
 import { IoFastFoodSharp } from "react-icons/io5";
 import { BiSolidLogInCircle } from "react-icons/bi";
+import { useState } from "react";
 
 const Header = () => {
+  // console.log("Re-Rendered");
+  const arr = useState("Login");
+  const btn = arr[0];
+  const setBtn = arr[1];
   return (
     <div className="header">
       {/* <div className="header" style={headerStyle}> */}
@@ -47,6 +52,16 @@ const Header = () => {
               <span>Cart</span>
             </li>
           </a>
+          <li>
+            <button
+              className="login-btn"
+              onClick={() => {
+                setBtn(btn === "Login" ? "Logout" : "Login");
+              }}
+            >
+              {btn}
+            </button>
+          </li>
         </ul>
       </div>
     </div>

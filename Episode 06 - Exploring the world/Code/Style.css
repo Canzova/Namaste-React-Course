@@ -14,6 +14,7 @@
 
 .nav-items ul {
     display: flex;
+    align-items: center;
     list-style-type: none;
     margin-right: 6rem;
 }
@@ -111,4 +112,73 @@ h5 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+
+/* -------------------------------Shimmer UI------------------------------ */
+.shimmer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 6rem;
+}
+
+.shimmer-card {
+    width: 15rem;
+    height: 18rem;
+    cursor: pointer;
+    margin: 2rem;
+    border-radius: 1.2rem;
+}
+
+
+
+.shimmer-image {
+    height: 63%;
+    border-radius: 1.2rem;
+    animation: changeColor 5s infinite linear;
+}
+
+
+.shimmer-content {
+    width: 7rem;
+    height: .6rem;
+    border-radius: 2rem;
+    margin-top: 0.5rem;
+    margin-left: 0.2rem;
+    /* infinite: This value indicates that the animation should run indefinitely, repeating over and over. */
+    animation: changeColor 5s infinite linear;
+}
+
+
+@keyframes changeColor {
+    0% {
+
+        background-color: white;
+    }
+
+    25% {
+        background-color: #D3D3D3;
+    }
+
+    50% {
+
+        background-color: white;
+    }
+
+    100% {
+        background-color: #D3D3D3;
+    }
+}
+
+.login-btn{
+    padding: .5rem 2rem;
+    width: 7rem;
+    cursor: pointer;
+    border: 1px solid black;
+    outline: none;
+}
+
+.login-btn:hover{
+    background-color: #FFAD01;;
 }
