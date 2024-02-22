@@ -66,7 +66,7 @@
 .search {
     margin: 2rem 5rem;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -171,7 +171,8 @@ h5 {
     }
 }
 
-.login-btn{
+
+.login-btn {
     padding: .5rem 2rem;
     width: 7rem;
     cursor: pointer;
@@ -179,6 +180,16 @@ h5 {
     outline: none;
 }
 
-.login-btn:hover{
-    background-color: #FFAD01;;
+.login-btn:hover {
+    background-color: #FFAD01;
+    ;
+}
+
+.searchBox {
+    padding: .5rem 2rem;
+    width: 14rem;
+    cursor: pointer;
+    border: 1px solid black;
+    outline: none;
+    margin-right: 1rem;
 }
