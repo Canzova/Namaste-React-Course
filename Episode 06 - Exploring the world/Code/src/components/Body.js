@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import React from "react";
 import NotFound from "./NotFound";
+import RestList from "./RestList";
 
 const Body = () => {
   // State Varibale
@@ -45,6 +46,7 @@ const Body = () => {
 
   // ------------- Filtering the top rated restraurants---------------
   const update = () => {
+    console.log("I am called");
     const filterList = topRestaurants2.filter((Restaurants) => {
       return Restaurants.info.avgRating >= 4.4;
     });
@@ -53,15 +55,17 @@ const Body = () => {
       setBtnText("Back");
       // Updating the state variable
       setTopRestaurants(filterList);
+      console.log(filterList);
     } else {
       setBtnText("Top Rated Restaurants");
       // Fetching data again to get un-filtered list of restraunts
       setTopRestaurants(topRestaurants2);
+      console.log(topRestaurants2);
     }
   };
 
   // ------------- Shimmer UI & Conditional Rendering---------------
-  if (topRestaurants.length === 0 && !isSearchNotFound) {
+  if (topRestaurants.length === 0 && isSearchNotFound === false) {
     // Because topRestaurants is an array
     return (
       <React.Fragment>
@@ -74,9 +78,7 @@ const Body = () => {
     );
   }
 
-  return isSearchNotFound ? (
-    <NotFound />
-  ) : (
+  return (
     <div className="body">
       {/* <div className="search" onClick={()=>{
         update();
@@ -117,10 +119,12 @@ const Body = () => {
           {btnText}
         </button>
       </div>
-      <div className="rest-container">
-        {topRestaurants.map((resturant) => {
-          return <RestCard key={resturant.info?.id} restInfo={resturant} />;
-        })}
+      <div>
+        {!isSearchNotFound ? (
+          <RestList topRestaurantsList={topRestaurants} />
+        ) : (
+          <NotFound />
+        )}
       </div>
     </div>
   );
