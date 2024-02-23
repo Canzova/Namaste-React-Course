@@ -1,8 +1,11 @@
+import { ImSad } from "react-icons/im";
 const NotFound = () => {
   return (
     <div className="notFound">
       <h1>Not Found....</h1>
-      <button className="login-btn" >Back</button>
+      <div className="emoji">
+        <ImSad />
+      </div>
     </div>
   );
 };

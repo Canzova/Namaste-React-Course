@@ -25,6 +25,25 @@ const Body = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    handleSearch();
+    console.log("2nd useEffect is called");
+  }, [searchText]);
+
+  const handleSearch = () => {
+    // -------------------------Filtering the data on serach---------------------------
+    const filteredData = topRestaurants2.filter((restaurant) => {
+      return restaurant?.info?.name
+        .toLowerCase()
+        .includes(searchText.toLowerCase());
+    });
+    // Here for some time the length of filteredlist will be zero because, after the first rendering when first useEffect will be called then there is a async function into it with await statement, as JS enginee encounters a aswait statement it suspends that function from the function call stack, then it comes to 2nd useEffect and executes handleSearch() function, now when it comes to execute this function till that time the promise from frtchData() function is not yet resolved, there fore we have topRestaurants2 as an empty array, and we are trying to serch for an empty string in an empty array it will give us an empty array due to which fikteredData will be empty, it it becomes empty and we dont have searchText !== "" statement in if block then, setIsSearchNotFound will be set as true and NotFound will be rendered on screen
+
+    filteredData.length === 0 && searchText !== ""
+      ? setIsSearchNotFound(true)
+      : setIsSearchNotFound(false);
+    setTopRestaurants(filteredData);
+  };
   // ------------- Getting live data from swiggy's API---------------
   const fetchData = async () => {
     const data = await fetch(
@@ -46,7 +65,6 @@ const Body = () => {
 
   // ------------- Filtering the top rated restraurants---------------
   const update = () => {
-    console.log("I am called");
     const filterList = topRestaurants2.filter((Restaurants) => {
       return Restaurants.info.avgRating >= 4.4;
     });
@@ -96,16 +114,7 @@ const Body = () => {
           <button
             className="login-btn"
             onClick={() => {
-              // -------------------------Filtering the data on serach---------------------------
-              const filteredData = topRestaurants2.filter((restaurant) => {
-                return restaurant?.info?.name
-                  .toLowerCase()
-                  .includes(searchText.toLowerCase());
-              });
-              filteredData.length === 0
-                ? setIsSearchNotFound(true)
-                : setIsSearchNotFound(false);
-              setTopRestaurants(filteredData);
+              handleSearch();
             }}
           >
             Search
