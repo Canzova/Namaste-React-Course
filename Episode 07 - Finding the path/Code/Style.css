@@ -1,0 +1,211 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    margin: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 0.1rem solid black;
+}
+
+.nav-items ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    margin-right: 6rem;
+}
+
+.nav-items ul a li {
+    margin: 0 1.2rem;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.nav-items ul a li span {
+    margin-left: .5rem;
+}
+
+.nav-items ul a {
+    text-decoration: none;
+    border: none;
+    color: black;
+}
+
+.nav-items ul a li:hover {
+    color: #FFAD01;
+}
+
+.logo {
+    height: 6rem;
+    object-fit: cover;
+    width: 8rem;
+}
+
+.logo-container {
+    margin-left: 5rem;
+}
+
+.body {
+    margin: 1rem;
+}
+
+.rest-card {
+    padding: .4rem;
+    width: 15rem;
+    height: 18rem;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    margin: 2rem;
+}
+
+.search {
+    margin: 2rem 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rest-img-container {
+    height: 63%;
+    overflow: hidden;
+    border-radius: 1.2rem;
+}
+
+.rest-img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    transition: all 0.2s ease-in-out;
+}
+
+.rest-img:hover {
+    transform: scale(1.05);
+}
+
+.rest-card:hover {
+    border-radius: 1.2rem;
+    background-color: #FFFF;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+h3,
+h5 {
+    margin: 0.3rem;
+    color: rgba(2, 6, 12, 0.75);
+    font-family: "Basic", sans-serif;
+    font-size: 1rem;
+}
+
+.cuisines {
+    color: #02060c99;
+    width: 100%;
+    font-size: .8rem;
+    font-family: "Basic", sans-serif;
+}
+
+.rest-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* -------------------------------Shimmer UI------------------------------ */
+.shimmer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 6rem;
+}
+
+.shimmer-card {
+    width: 15rem;
+    height: 18rem;
+    cursor: pointer;
+    margin: 2rem;
+    border-radius: 1.2rem;
+}
+
+
+
+.shimmer-image {
+    height: 63%;
+    border-radius: 1.2rem;
+    animation: changeColor 5s infinite linear;
+}
+
+
+.shimmer-content {
+    width: 7rem;
+    height: .6rem;
+    border-radius: 2rem;
+    margin-top: 0.5rem;
+    margin-left: 0.2rem;
+    /* infinite: This value indicates that the animation should run indefinitely, repeating over and over. */
+    animation: changeColor 5s infinite linear;
+}
+
+
+@keyframes changeColor {
+    0% {
+
+        background-color: white;
+    }
+
+    25% {
+        background-color: #D3D3D3;
+    }
+
+    50% {
+
+        background-color: white;
+    }
+
+    100% {
+        background-color: #D3D3D3;
+    }
+}
+
+
+.login-btn {
+    padding: .5rem 2rem;
+    width: 7rem;
+    cursor: pointer;
+    border: 1px solid black;
+    outline: none;
+}
+
+.login-btn:hover {
+    background-color: #FFAD01;
+    ;
+}
+
+.searchBox {
+    padding: .5rem 2rem;
+    width: 14rem;
+    cursor: pointer;
+    border: 1px solid black;
+    outline: none;
+    margin-right: 1rem;
+}
+
+.notFound {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.notFound h1 {
+    margin-bottom: 2rem;
+}
+
+.notFound svg {
+    color: #FFAD01;
+    height: 5rem;
+    width: 5rem;
+}
