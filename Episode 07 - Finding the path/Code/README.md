@@ -1,1 +1,1 @@
-# Episode 07 - Finding the path
+## Episode 07 - Finding the path
