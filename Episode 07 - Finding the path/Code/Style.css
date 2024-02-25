@@ -37,7 +37,7 @@
 }
 
 .nav-items ul a li:hover {
-    color: #FFAD01;
+    color: #fc8019;
 }
 
 .logo {
@@ -81,6 +81,7 @@
     width: 100%;
     height: 100%;
     transition: all 0.2s ease-in-out;
+    scale: 1.01;
 }
 
 .rest-img:hover {
@@ -181,7 +182,7 @@ h5 {
 }
 
 .login-btn:hover {
-    background-color: #FFAD01;
+    background-color: #fc8019;
     ;
 }
 
@@ -205,7 +206,129 @@ h5 {
 }
 
 .notFound svg {
-    color: #FFAD01;
+    color: #fc8019;
     height: 5rem;
     width: 5rem;
+}
+
+.restMenu-container {
+    padding: 2rem 15rem;
+}
+
+.rest-header h1 {
+    color: #1B1212;
+    font-size: 2rem;
+    font-weight: 600;
+    font-family: Bricolage Grotesque, sans-serif;
+}
+
+.star-rating {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    color: #36454f;
+    font-family: Bricolage Grotesque, sans-serif;
+    border: 1px solid #e9e9eb;
+    border-radius: 6px;
+    text-align: center;
+    padding: 8px;
+    height: 5rem;
+    width: 4rem;
+    background: white;
+}
+
+.star-rating span:last-child {
+    border-top: 1px solid #e9e9eb;
+    padding-top: .4rem;
+}
+
+.header-body {
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    margin: 2rem 0;
+    font-weight: 600;
+    padding-bottom: 2rem;
+    border-bottom: 1px dashed #7e808c;
+}
+
+.rest-name {
+    color: #36454f;
+    margin-bottom: 1rem;
+    font-family: Bricolage Grotesque, sans-serif;
+    font-size: 1.3rem;
+    font-weight: revert;
+}
+
+#text {
+    color: #7e808c;
+    font-size: 0.93rem;
+    font-weight: 100;
+    letter-spacing: 0.1px;
+    font-family: Bricolage Grotesque, sans-serif;
+    line-height: 1.2rem;
+}
+
+.message {
+    margin-top: 1rem;
+}
+
+.message svg {
+    color: #fc8019;
+}
+
+.offersBody span {
+    display: inline-block;
+    margin-right: 1.5rem;
+    font-size: 1rem;
+    font-weight: 800;
+    font-family: Bricolage Grotesque, sans-serif;
+    color: #36454f;
+    margin-bottom: 2rem;
+}
+
+.offer-btn {
+    border: 2px solid #e9e9eb;
+    padding: 1rem;
+    background: white;
+    border-radius: .5rem;
+    margin: 1rem;
+}
+
+.offer-btn div {
+    font-size: .8rem;
+    font-weight: 800;
+    color: #686b78;
+}
+
+.logo-conatiner {
+    display: flex;
+    align-items: center;
+}
+
+.logo-conatiner svg {
+    color: brown;
+    font-size: 1.5rem;
+}
+
+.offer-btn div:last-child {
+    color: #686b78;
+    margin-top: 0.6rem;
+    font-size: .7rem;
+    font-weight: 600;
+}
+
+.offer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.rest-container a {
+    text-decoration: none;
+    border: none;
+    outline: none;
+
 }

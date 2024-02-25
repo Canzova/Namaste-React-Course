@@ -16,6 +16,7 @@ const Body = () => {
   const [topRestaurants2, setTopRestaurants2] = useState([]);
   const [isSearchNotFound, setIsSearchNotFound] = useState(false);
 
+
   /**
    *! When ever there is a change in state varible the component gets re-rendered
    */
@@ -37,7 +38,8 @@ const Body = () => {
         .includes(searchText.toLowerCase());
     });
 
-    filteredData.length === 0 && searchText !== ""
+    // Because for sometime till topRestaurants2 is not loaded from api, it will be empty and thats why filterData will also be empty, and if i not write topRestaurants2.length != 0, then setIsSearchNotFound will become true and NotFound component will get loaded
+    filteredData.length === 0 && topRestaurants2.length != 0
       ? setIsSearchNotFound(true)
       : setIsSearchNotFound(false);
     setTopRestaurants(filteredData);
@@ -131,7 +133,7 @@ const Body = () => {
       </div>
       <div>
         {!isSearchNotFound ? (
-          <RestList topRestaurantsList={topRestaurants} />
+         <RestList topRestaurantsList={topRestaurants} />
         ) : (
           <NotFound />
         )}

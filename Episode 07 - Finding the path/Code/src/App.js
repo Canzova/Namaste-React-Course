@@ -10,6 +10,7 @@ import Offers from "./components/Offers";
 import Error from "./components/Error";
 import Help from "./components/Help";
 import Cart from "./components/Cart";
+import RestMenu from "./components/RestMenu"
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -47,6 +48,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart />,
+      },
+      {
+        path: "/restaurants/:restId",
+        element: <RestMenu />,
       },
     ],
     errorElement: <Error />,
