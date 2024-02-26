@@ -6,26 +6,33 @@ import { TbCoinRupeeFilled } from "react-icons/tb";
 import { MdTimelapse } from "react-icons/md";
 import Offer from "./Offer";
 import { useParams } from "react-router-dom";
-import {RESTMENU_URL} from "../utils/constants"
+import { RESTMENU_URL } from "../utils/constants";
+import Dishesh from "./Dishesh";
 
 const RestMenu = () => {
   const [restData, setrestData] = useState(null);
   const [offers, setOffers] = useState([]);
- 
-  const {restId} = useParams();
+  const [dishList, setDishList] = useState([]);
+
+  const { restId } = useParams();
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(
-      RESTMENU_URL+restId
-    );
+    const data = await fetch(RESTMENU_URL + restId);
 
     const JSON = await data.json();
 
     // List of dishesh
-    //console.log(JSON?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards);
+    // console.log(JSON?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards);
+    const dish =
+      JSON?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
+    const updatedDishList = dish.slice(1).map((item) => {
+      return item;
+    });
+
+    setDishList(updatedDishList);
 
     // For name and etc
     setrestData(JSON?.data?.cards[2]?.card?.card?.info);
@@ -36,7 +43,7 @@ const RestMenu = () => {
     );
 
     // For Top Picks
-    console.log(JSON?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.carousel)
+    //console.log(JSON?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.carousel)
   };
 
   if (restData === null) {
@@ -94,6 +101,12 @@ const RestMenu = () => {
         </span>
 
         <Offer details={offers} />
+      </div>
+
+      <div className="dihesh">
+        {dishList.map((item, index) => {
+          return <Dishesh details={item?.card?.card} key={index} />;
+        })}
       </div>
     </div>
   );

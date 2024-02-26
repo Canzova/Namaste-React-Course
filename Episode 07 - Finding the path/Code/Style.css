@@ -324,11 +324,110 @@ h5 {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    padding-bottom: 2rem;
+    border-bottom: 1px dashed #7e808c;
 }
 
 .rest-container a {
     text-decoration: none;
     border: none;
     outline: none;
+}
 
+.dishesh-container {
+    padding-top: 2rem;
+    border-bottom: 16px solid #f1f1f6;
+}
+
+.dish-List-Title {
+    color: #36454f;
+    font-family: Bricolage Grotesque, sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+
+}
+
+
+.dishesh-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 2rem 0;
+    border-bottom: 1px solid #7e808c;
+}
+
+.dishesh-card:last-child {
+    border-bottom: none;
+}
+
+.dishesh-img {
+    width: 9rem;
+    height: 8rem;
+    position: relative;
+    cursor: pointer;
+}
+
+.order-Button {
+    color: #60b246;
+    text-align: center;
+    background: #fff;
+    border: 2px solid #e9e9eb;
+    border-radius: 6px;
+    width: 6rem;
+    height: 2.3rem;
+    font-weight: 900;
+    position: absolute;
+    bottom: -11%;
+    left: 18%;
+    font-family: Basic, sans-serif;
+    cursor: pointer;
+}
+
+.dishesh-img img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+.dishesh-card h2 {
+    color: #282c3f;
+    font-size: 1.2rem;
+    margin-bottom: .5rem;
+    font-weight: 500;
+    font-family: "Basic", sans-serif;
+}
+
+.dishesh-card p:last-child {
+    color: #282c3f73;
+    margin: 0.2rem 0;
+    padding-right: 2rem;
+}
+
+.dish-discription {
+    width: 42rem;
+}
+
+.dishesh-header {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+
+.dishesh-header svg {
+    font-size: 2rem;
+    color: #36454f;
+}
+
+.dish-discription {
+    margin-top: 2rem;
+}
+
+.dish-discription p {
+    font-size: 1rem;
+    font-family: "Basic", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
 }

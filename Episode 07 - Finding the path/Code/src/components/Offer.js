@@ -1,7 +1,6 @@
 import { BiSolidOffer } from "react-icons/bi";
 const Offer = (props) => {
   const { details } = props;
-  console.log(details);
   return (
     <div className="offer-container">
       {details.map((items) => {

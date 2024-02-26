@@ -51,12 +51,12 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.21290&lng=81.42940&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
 
-    console.log(data);
+    //console.log(data);
     const JSON = await data.json();
 
-    console.log(
-      JSON?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
+    // console.log(
+    //   JSON?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    // );
 
     setTopRestaurants(
       JSON?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
