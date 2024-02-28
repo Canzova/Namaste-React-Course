@@ -1,0 +1,439 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    margin: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 0.1rem solid black;
+}
+
+.nav-items ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    margin-right: 6rem;
+}
+
+.nav-items ul a li {
+    margin: 0 1.2rem;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.nav-items ul a li span {
+    margin-left: .5rem;
+}
+
+.nav-items ul a {
+    text-decoration: none;
+    border: none;
+    color: black;
+}
+
+.nav-items ul a li:hover {
+    color: #fc8019;
+}
+
+.logo {
+    height: 6rem;
+    object-fit: cover;
+    width: 8rem;
+}
+
+.logo-container {
+    margin-left: 5rem;
+}
+
+.body {
+    margin: 1rem;
+}
+
+.rest-card {
+    padding: .4rem;
+    width: 15rem;
+    height: 18rem;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    margin: 2rem;
+}
+
+.search {
+    margin: 2rem 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rest-img-container {
+    height: 63%;
+    overflow: hidden;
+    border-radius: 1.2rem;
+}
+
+.rest-img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    transition: all 0.2s ease-in-out;
+    scale: 1.01;
+}
+
+.rest-img:hover {
+    transform: scale(1.05);
+}
+
+.rest-card:hover {
+    border-radius: 1.2rem;
+    background-color: #FFFF;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+h3,
+h5 {
+    margin: 0.3rem;
+    color: rgba(2, 6, 12, 0.75);
+    font-family: "Basic", sans-serif;
+    font-size: 1rem;
+}
+
+.cuisines {
+    color: #02060c99;
+    width: 100%;
+    font-size: .8rem;
+    font-family: "Basic", sans-serif;
+}
+
+.rest-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* -------------------------------Shimmer UI------------------------------ */
+.shimmer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 6rem;
+}
+
+.shimmer-card {
+    width: 15rem;
+    height: 18rem;
+    cursor: pointer;
+    margin: 2rem;
+    border-radius: 1.2rem;
+}
+
+
+
+.shimmer-image {
+    height: 63%;
+    border-radius: 1.2rem;
+    animation: changeColor 5s infinite linear;
+}
+
+
+.shimmer-content {
+    width: 7rem;
+    height: .6rem;
+    border-radius: 2rem;
+    margin-top: 0.5rem;
+    margin-left: 0.2rem;
+    /* infinite: This value indicates that the animation should run indefinitely, repeating over and over. */
+    animation: changeColor 5s infinite linear;
+}
+
+
+@keyframes changeColor {
+    0% {
+
+        background-color: white;
+    }
+
+    25% {
+        background-color: #D3D3D3;
+    }
+
+    50% {
+
+        background-color: white;
+    }
+
+    100% {
+        background-color: #D3D3D3;
+    }
+}
+
+
+.login-btn {
+    padding: .5rem 2rem;
+    width: 7rem;
+    cursor: pointer;
+    border: 1px solid black;
+    outline: none;
+}
+
+.login-btn:hover {
+    background-color: #fc8019;
+    ;
+}
+
+.searchBox {
+    padding: .5rem 2rem;
+    width: 14rem;
+    cursor: pointer;
+    border: 1px solid black;
+    outline: none;
+    margin-right: 1rem;
+}
+
+.notFound {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.notFound h1 {
+    margin-bottom: 2rem;
+}
+
+.notFound svg {
+    color: #fc8019;
+    height: 5rem;
+    width: 5rem;
+}
+
+.restMenu-container {
+    padding: 2rem 15rem;
+}
+
+.user-details{
+    border: 1px dashed black;  
+    margin: 2rem 15rem;  
+    padding: 2rem;
+}
+
+.rest-header h1 {
+    color: #1B1212;
+    font-size: 2rem;
+    font-weight: 600;
+    font-family: Bricolage Grotesque, sans-serif;
+}
+
+.star-rating {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    color: #36454f;
+    font-family: Bricolage Grotesque, sans-serif;
+    border: 1px solid #e9e9eb;
+    border-radius: 6px;
+    text-align: center;
+    padding: 8px;
+    height: 5rem;
+    width: 4rem;
+    background: white;
+}
+
+.star-rating span:last-child {
+    border-top: 1px solid #e9e9eb;
+    padding-top: .4rem;
+}
+
+.header-body {
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    margin: 2rem 0;
+    font-weight: 600;
+    padding-bottom: 2rem;
+    border-bottom: 1px dashed #7e808c;
+}
+
+.rest-name {
+    color: #36454f;
+    margin-bottom: 1rem;
+    font-family: Bricolage Grotesque, sans-serif;
+    font-size: 1.3rem;
+    font-weight: revert;
+}
+
+#text {
+    color: #7e808c;
+    font-size: 0.93rem;
+    font-weight: 100;
+    letter-spacing: 0.1px;
+    font-family: Bricolage Grotesque, sans-serif;
+    line-height: 1.2rem;
+}
+
+.message {
+    margin-top: 1rem;
+}
+
+.message svg {
+    color: #fc8019;
+}
+
+.offersBody span {
+    display: inline-block;
+    margin-right: 1.5rem;
+    font-size: 1rem;
+    font-weight: 800;
+    font-family: Bricolage Grotesque, sans-serif;
+    color: #36454f;
+    margin-bottom: 2rem;
+}
+
+.offer-btn {
+    border: 2px solid #e9e9eb;
+    padding: 1rem;
+    background: white;
+    border-radius: .5rem;
+    margin: 1rem;
+}
+
+.offer-btn div {
+    font-size: .8rem;
+    font-weight: 800;
+    color: #686b78;
+}
+
+.logo-conatiner {
+    display: flex;
+    align-items: center;
+}
+
+.logo-conatiner svg {
+    color: brown;
+    font-size: 1.5rem;
+}
+
+.offer-btn div:last-child {
+    color: #686b78;
+    margin-top: 0.6rem;
+    font-size: .7rem;
+    font-weight: 600;
+}
+
+.offer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-bottom: 2rem;
+    border-bottom: 1px dashed #7e808c;
+}
+
+.rest-container a {
+    text-decoration: none;
+    border: none;
+    outline: none;
+}
+
+.dishesh-container {
+    padding-top: 2rem;
+    border-bottom: 16px solid #f1f1f6;
+}
+
+.dish-List-Title {
+    color: #36454f;
+    font-family: Bricolage Grotesque, sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+
+}
+
+
+.dishesh-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 2rem 0;
+    border-bottom: 1px solid #7e808c;
+}
+
+.dishesh-card:last-child {
+    border-bottom: none;
+}
+
+.dishesh-img {
+    width: 9rem;
+    height: 8rem;
+    position: relative;
+    cursor: pointer;
+}
+
+.order-Button {
+    color: #60b246;
+    text-align: center;
+    background: #fff;
+    border: 2px solid #e9e9eb;
+    border-radius: 6px;
+    width: 6rem;
+    height: 2.3rem;
+    font-weight: 900;
+    position: absolute;
+    bottom: -11%;
+    left: 18%;
+    font-family: Basic, sans-serif;
+    cursor: pointer;
+}
+
+.dishesh-img img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+.dishesh-card h2 {
+    color: #282c3f;
+    font-size: 1.2rem;
+    margin-bottom: .5rem;
+    font-weight: 500;
+    font-family: "Basic", sans-serif;
+}
+
+.dishesh-card p:last-child {
+    color: #282c3f73;
+    margin: 0.2rem 0;
+    padding-right: 2rem;
+}
+
+.dish-discription {
+    width: 42rem;
+}
+
+.dishesh-header {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+
+.dishesh-header svg {
+    font-size: 2rem;
+    color: #36454f;
+}
+
+.dish-discription {
+    margin-top: 2rem;
+}
+
+.dish-discription p {
+    font-size: 1rem;
+    font-family: "Basic", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
