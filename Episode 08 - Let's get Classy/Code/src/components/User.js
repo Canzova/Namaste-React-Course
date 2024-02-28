@@ -4,11 +4,20 @@ const User = ({ name, location, contact }) => {
   const [count, setCount] = useState(1);
   const [count2, setCount2] = useState(2);
 
-  useEffect(() => {
-    console.log(name + " Functional Component useEffect");
-  }, []);
+  // useEffect(() => {
+  //   const timer = setInterval(()=>{
+  //     console.log("I am inside useEffect")
+  //   }, 1000);
 
-  console.log(name + " Functional Component");
+
+  //   // Cleanup Function
+  //   return ()=>{
+  //     clearInterval(timer);
+  //   }
+    
+  // }, []);
+
+
   return (
     <div className="user-conatiner">
       <div className="user-details">

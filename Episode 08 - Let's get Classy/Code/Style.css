@@ -215,11 +215,6 @@ h5 {
     padding: 2rem 15rem;
 }
 
-.user-details{
-    border: 1px dashed black;  
-    margin: 2rem 15rem;  
-    padding: 2rem;
-}
 
 .rest-header h1 {
     color: #1B1212;
@@ -436,4 +431,49 @@ h5 {
     font-optical-sizing: auto;
     font-weight: 300;
     font-style: normal;
+}
+
+.user-conatiner {
+    margin: 2rem;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    height: 24rem;
+    width: 18rem;
+    cursor: pointer;
+    background-color: #FFFF;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.user-img-conatiner {
+    height: 65%;
+    overflow: hidden;
+    border-radius: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+
+.user-conatiner img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    transition: all 0.2s ease-in-out;
+}
+
+.user-conatiner img:hover {
+    transform: scale(1.05);
+}
+
+.user-details {
+    text-align: center;
+    font-family: "Basic", sans-serif;
+}
+
+.about-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
