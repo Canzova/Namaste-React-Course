@@ -27,13 +27,28 @@ class About extends React.Component {
             count : this.state.count + 1,
           })
         }}>Count</button>
-        <User
-          name={"Nihal Singh from functional component"}
+        <UserClass
+          name={"First"}
           location={"Sector : 5"}
           contact={"9999999999"}
         />
         <UserClass
-          name={"Nihal Singh from Class component"}
+          name={"Second"}
+          location={"Sector : 5"}
+          contact={"9999999999"}
+        />
+        <UserClass
+          name={"Third"}
+          location={"Sector : 5"}
+          contact={"9999999999"}
+        />
+        <UserClass
+          name={"Fourth"}
+          location={"Sector : 5"}
+          contact={"9999999999"}
+        />
+         <User
+          name={"Fourth"}
           location={"Sector : 5"}
           contact={"9999999999"}
         />

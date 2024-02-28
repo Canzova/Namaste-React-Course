@@ -2,17 +2,17 @@ import React from "react";
 class UserClass extends React.Component {
   constructor(props) {
     super(props);
-    console.log("Child Constructor");
+    console.log(this.props.name + " Child Constructor");
     this.state = {
       count: 1,
       count2: 2,
     };
   }
   componentDidMount() {
-    console.log("Child Component Did Mount");
+    console.log(this.props.name + " Child Component Did Mount");
   }
   render() {
-    console.log("Child Render");
+    console.log(this.props.name + " Child Render");
     // Do destructing inside render method and above return
     const { name, location, contact } = this.props;
     const { count, count2 } = this.state;
