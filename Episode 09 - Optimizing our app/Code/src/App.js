@@ -19,7 +19,7 @@ const Grocery = lazy(() => {
 });
 
 //const Grocery = lazy(() =>  (import("./components/Grocery"));
-// Below code will give an error---> Dont know why !!!!!
+// Below code will give an error---> Because if you are using {} curly braces in arrow function then you need to write return also
 //const Grocery = lazy(() =>  {import("./components/Grocery")});
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
