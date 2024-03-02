@@ -8,7 +8,6 @@ import useInternetStatus from "../utils/useInternetStatus";
 import OfflineStatus from "./OfflineStatus";
 
 const Body = () => {
- 
   // State Varibale
   const arr = useState("Top Rated Restaurants");
   const btnText = arr[0];
@@ -18,7 +17,6 @@ const Body = () => {
   // Below state varible will always conatin the actual data which we are getting from the out API
   const [topRestaurants2, setTopRestaurants2] = useState([]);
   const [isSearchNotFound, setIsSearchNotFound] = useState(false);
-
 
   // useEffect
   useEffect(() => {
@@ -47,7 +45,7 @@ const Body = () => {
   // ------------- Getting live data from swiggy's API---------------
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.21290&lng=81.42940&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
 
     //console.log(data);
@@ -106,19 +104,19 @@ const Body = () => {
   }
 
   return (
-    <div className="body">
-      <div className="search">
-        <div className="search-ele">
+    <div className="mx-20 my-8">
+      <div className="flex justify-between mx-20">
+        <div className="">
           <input
             type="text"
-            className="searchBox"
+            className="border-2 border-slate-300 rounded-md focus:outline-none px-3 focus:border-[#fc8019] py-1"
             value={searchText}
             onChange={(text) => {
               setsearchText(text.target.value);
             }}
           />
           <button
-            className="login-btn"
+            className="mx-4 "
             onClick={() => {
               handleSearch();
             }}
@@ -127,14 +125,14 @@ const Body = () => {
           </button>
         </div>
         <button
-          className="login-btn"
+          className="border-2 border-slate-300 w-40 px-3  py-1 rounded-md hover:border-[#fc8019] text-black"
           onClick={update}
           style={{ width: btnText === "Back" ? "6rem" : "13rem" }}
         >
           {btnText}
         </button>
       </div>
-      <div>
+      <div className="my-8 mx-20">
         {!isSearchNotFound ? (
           <RestList topRestaurantsList={topRestaurants} />
         ) : (
