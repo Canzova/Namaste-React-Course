@@ -42,39 +42,45 @@ const RestMenu = () => {
   const { message } = restData?.feeDetails;
 
   return (
-    <div className="restMenu-container">
-      <div className="rest-header">
-        <h1>{name}</h1>
-      </div>
-      <div className="header-body">
-        <div>
-          <p className="rest-name">{name}</p>
-          <p id="text">{cuisines.join(", ")}</p>
-          <p id="text">
-            {city}, {lastMileTravelString}
-          </p>
-          <p id="text" className="message">
-            {" "}
-            <ImLocation2 /> &nbsp;{message}
-          </p>
+    <div className="mx-52 my-10">
+      <div className="flex flex-col justify-center items-between">
+        <h1 className="font-title font-bold text-xl text-gray-800">{name}</h1>
+        <div className="flex justify-between items-start border-b-[.5px] border-dashed border-[#d5d6df]">
+          <div className="text-sm text-[#7e808c] ">
+            <p id="text">{cuisines.join(", ")}</p>
+            <p id="text">
+              {city}, {lastMileTravelString}
+            </p>
+            <p className="flex justify-start text-center my-6">
+              <ImLocation2 /> &nbsp;{message}
+            </p>
+          </div>
+          <button className="flex justify-center flex-col border-2 border-slate-200 rounded-md p-[0.4rem 0.2rem] py-1 items-center">
+            <span className="flex justify-center items-center text-green-800 p-2 font-bold">
+              <FaStar /> &nbsp;{avgRating}
+            </span>
+            <span className="border-t-2 border-b-slate-200 text-[.6rem] text-[#7e808c] py-2  font-bold px-2">
+              {totalRatingsString}
+            </span>
+          </button>
         </div>
-        <button className="star-rating">
-          <span style={{ color: "green" }}>
-            <FaStar /> &nbsp;{avgRating}
-          </span>
-          <span>{totalRatingsString}</span>
-        </button>
       </div>
 
       <div className="offersBody">
-        <span>
-          <MdTimelapse /> &nbsp;{minDeliveryTime} - {maxDeliveryTime} MINS
-        </span>
-        <span>
-          <TbCoinRupeeFilled /> &nbsp;{costForTwoMessage}
-        </span>
+        <div className="flex justify-start items-center my-6">
+          <span className="flex items-center mr-5 text-[#3e4152] font-bold font-title text-lg">
+            <MdTimelapse className="inline-block text-2xl" /> &nbsp;{minDeliveryTime} -{" "}
+            {maxDeliveryTime} MINS
+          </span>
+          <span className="flex items-center text-[#3e4152] font-bold font-title text-lg">
+            <TbCoinRupeeFilled className="inline-block text-2xl" /> &nbsp;
+            {costForTwoMessage}
+          </span>
+        </div>
 
+        <div>
         <Offer details={offers} />
+        </div>
       </div>
 
       <div className="dihesh">

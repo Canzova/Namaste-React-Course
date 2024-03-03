@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       fontFamily: {
         custom: ["Basic", "sans-serif"],
+        title : ["Bricolage Grotesque", "sans-serif"],
       },
     },
     plugins: [],
