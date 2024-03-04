@@ -6,9 +6,9 @@ import white from "../../images/white.jpg";
 import { IoIosArrowUp } from "react-icons/io";
 import { IoIosArrowDown } from "react-icons/io";
 
-const Dishesh = ({ details }) => {
+const Dishesh = ({ details, showItems, setShowIndex }) => {
   const { title } = details;
-  const [show, setShow] = useState(true);
+
 
   const handleImageError = (event) => {
     event.target.src = white;
@@ -20,20 +20,20 @@ const Dishesh = ({ details }) => {
           <div
             className="text-[#3E4152] text-lg font-bold font-title flex justify-between items-center py-8 cursor-pointer"
             onClick={() => {
-              setShow(!show);
+              setShowIndex();
             }}
           >
             <h1 className="font-bold text-[#3E4152]">
               {title} ({details?.itemCards?.length})
             </h1>
-            {show ? (
+            {showItems ? (
               <IoIosArrowUp className="text-2xl cursor-pointer" />
             ) : (
               <IoIosArrowDown className="text-2xl cursor-pointer" />
             )}
           </div>
 
-          {show && (
+          {showItems && (
             <div className="dishesh-cards border-2 rounded-lg p-12 py-0 mb-8">
               {details?.itemCards?.map((item) => {
                 return (

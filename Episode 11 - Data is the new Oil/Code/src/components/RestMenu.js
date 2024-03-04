@@ -1,5 +1,6 @@
 //! Our Hooks
 import { useParams } from "react-router-dom";
+import { useState } from "react";
 
 //! Our Supporting Components/Utils
 import Offer from "./Offer";
@@ -15,6 +16,8 @@ import { MdTimelapse } from "react-icons/md";
 
 const RestMenu = () => {
   const { restId } = useParams();
+  const [showIndex, setShowIndex] = useState(0);
+  const [hideIndex, setHideIndex] = useState(null);
 
   // Using custom hook
   const [restData, offers, dishList] = useRestMenu(restId);
@@ -69,8 +72,8 @@ const RestMenu = () => {
       <div className="offersBody">
         <div className="flex justify-start items-center my-6">
           <span className="flex items-center mr-5 text-[#3e4152] font-bold font-title text-lg">
-            <MdTimelapse className="inline-block text-2xl" /> &nbsp;{minDeliveryTime} -{" "}
-            {maxDeliveryTime} MINS
+            <MdTimelapse className="inline-block text-2xl" /> &nbsp;
+            {minDeliveryTime} - {maxDeliveryTime} MINS
           </span>
           <span className="flex items-center text-[#3e4152] font-bold font-title text-lg">
             <TbCoinRupeeFilled className="inline-block text-2xl" /> &nbsp;
@@ -79,13 +82,20 @@ const RestMenu = () => {
         </div>
 
         <div>
-        <Offer details={offers} />
+          <Offer details={offers} />
         </div>
       </div>
 
       <div className="dihesh">
         {dishList.map((item, index) => {
-          return <Dishesh details={item?.card?.card} key={index} />;
+          return (
+            <Dishesh
+              details={item?.card?.card}
+              key={index}
+              showItems={showIndex === index ? true : false}
+              setShowIndex = {()=>setShowIndex(index)}
+            />
+          );
         })}
       </div>
     </div>

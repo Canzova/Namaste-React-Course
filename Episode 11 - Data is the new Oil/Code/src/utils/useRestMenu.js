@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
 import { RESTMENU_URL } from "../utils/constants";
 
-
 const useRestMenu = (restId) => {
-
   //? Our local state varibales
   const [restData, setrestData] = useState(null);
   const [offers, setOffers] = useState([]);
@@ -23,10 +21,10 @@ const useRestMenu = (restId) => {
     const dish =
       JSON?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
 
-      // console.log(dish);
-    const updatedDishList = dish.slice(1).map((item) => {
-      return item;
-    });
+    // console.log(dish);
+    const updatedDishList = dish.filter((item, index) => index !== 0);
+
+    //console.log(updatedDishList[0]);
 
     setDishList(updatedDishList);
 
