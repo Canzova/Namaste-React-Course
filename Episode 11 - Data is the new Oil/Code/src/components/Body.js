@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import React from "react";
 import NotFound from "./NotFound";
@@ -6,6 +6,7 @@ import RestList from "./RestList";
 import useInternetStatus from "../utils/useInternetStatus";
 import OfflineStatus from "./OfflineStatus";
 import { BODY_CONTENT } from "../utils/constants";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   // State Varibale
@@ -17,7 +18,6 @@ const Body = () => {
   // Below state varible will always conatin the actual data which we are getting from the out API
   const [topRestaurants2, setTopRestaurants2] = useState([]);
   const [isSearchNotFound, setIsSearchNotFound] = useState(false);
-
 
   // useEffect
   useEffect(() => {
@@ -50,9 +50,9 @@ const Body = () => {
     //console.log(data);
     const JSON = await data.json();
 
-    console.log(
-      JSON?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
+    // console.log(
+    //   JSON?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    // );
 
     setTopRestaurants(
       JSON?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
@@ -102,6 +102,9 @@ const Body = () => {
     );
   }
 
+  // Implementing Contest
+  const {userName, setupdatedUserName} = useContext(UserContext);
+
   return (
     <div className="mx-20 my-8">
       <div className="flex justify-between mx-20">
@@ -130,6 +133,14 @@ const Body = () => {
         >
           {btnText}
         </button>
+        <input
+          type="text"
+          className="border-2 border-slate-300 rounded-md focus:outline-none px-3 focus:border-[#fc8019] py-1"
+          value={userName}
+          onChange={(event) => {
+            setupdatedUserName(event.target.value);
+          }}
+        />
       </div>
       <div className="my-8 mx-20">
         {!isSearchNotFound ? (

@@ -17,7 +17,6 @@ import { MdTimelapse } from "react-icons/md";
 const RestMenu = () => {
   const { restId } = useParams();
   const [showIndex, setShowIndex] = useState(0);
-  const [hideIndex, setHideIndex] = useState(null);
 
   // Using custom hook
   const [restData, offers, dishList] = useRestMenu(restId);
@@ -93,7 +92,8 @@ const RestMenu = () => {
               details={item?.card?.card}
               key={index}
               showItems={showIndex === index ? true : false}
-              setShowIndex = {()=>setShowIndex(index)}
+              setShowIndex={() => setShowIndex(index)}
+              setHideIndex={() => setShowIndex(null)}
             />
           );
         })}

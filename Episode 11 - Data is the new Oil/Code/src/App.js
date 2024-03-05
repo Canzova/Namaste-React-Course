@@ -1,6 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Outlet,
+  useSearchParams,
+} from "react-router-dom";
+import { useEffect, useState, useContext } from "react";
+import UserContext from "./utils/UserContext";
 
 //! Importing components
 import Header from "./components/Header";
@@ -11,17 +18,27 @@ import Error from "./components/Error";
 import Help from "./components/Help";
 import Cart from "./components/Cart";
 import RestMenu from "./components/RestMenu";
-import { lazy, Suspense } from "react";
-
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 const Applayout = () => {
+  //const {userName} = useContext(UserContext);
+
+  const [updatedUserName, setupdatedUserName] = useState();
+  useEffect(() => {
+    const data = {
+      userName: "Kevin Peterson",
+    };
+    setupdatedUserName(data?.userName);
+  }, []);
   return (
-    <div className="app">
-      <Header />
-      <Outlet />
-    </div>
+    // with below code we are updating the whole usercontext object
+    <UserContext.Provider value={{userName : updatedUserName, id : "909090", setupdatedUserName}}>
+      <div className="app">
+        <Header />
+        <Outlet />
+      </div>
+    </UserContext.Provider>
   );
 };
 

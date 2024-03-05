@@ -22,9 +22,13 @@ const useRestMenu = (restId) => {
       JSON?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
 
     // console.log(dish);
-    const updatedDishList = dish.filter((item, index) => index !== 0);
+    const updatedDishList = dish.filter((item, index) => {
+      return(
+        item?.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+      )
+    });
 
-    //console.log(updatedDishList[0]);
+    console.log(updatedDishList);
 
     setDishList(updatedDishList);
 

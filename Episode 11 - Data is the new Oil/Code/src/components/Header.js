@@ -1,5 +1,7 @@
 //? Logo
 import QuickEats from "../../images/QuickEats.png";
+import UserContext from "../utils/UserContext";
+import { useContext } from "react";
 
 // !For Icons
 import { FaHome } from "react-icons/fa";
@@ -9,6 +11,7 @@ import { IoFastFoodSharp } from "react-icons/io5";
 import { BiSolidLogInCircle } from "react-icons/bi";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+
 
 const Header = () => {
   /**
@@ -22,6 +25,8 @@ const Header = () => {
   const arr = useState("Login");
   const btn = arr[0];
   const setBtn = arr[1];
+
+  const {userName} = useContext(UserContext);
 
   return (
     <div className="flex items-center justify-between mx-5 shadow-lg">
@@ -69,6 +74,12 @@ const Header = () => {
               {btn}
             </button>
           </li>
+
+          <Link className="ml-9 text-lg hover:text-[#fc8019]">
+            <li className="flex items-center">
+              <span className="font-bold">User Name : {userName}</span>
+            </li>
+          </Link>
         </ul>
       </div>
     </div>
