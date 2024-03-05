@@ -19,6 +19,10 @@ const Body = () => {
   const [topRestaurants2, setTopRestaurants2] = useState([]);
   const [isSearchNotFound, setIsSearchNotFound] = useState(false);
 
+  // Using useContect hook
+  const { userName, setupdatedUserName } = useContext(UserContext);
+
+
   // useEffect
   useEffect(() => {
     fetchData();
@@ -101,9 +105,6 @@ const Body = () => {
       </React.Fragment>
     );
   }
-
-  // Implementing Contest
-  const {userName, setupdatedUserName} = useContext(UserContext);
 
   return (
     <div className="mx-20 my-8">

@@ -33,7 +33,7 @@ const Applayout = () => {
   }, []);
   return (
     // with below code we are updating the whole usercontext object
-    <UserContext.Provider value={{userName : updatedUserName, id : "909090", setupdatedUserName}}>
+    <UserContext.Provider>
       <div className="app">
         <Header />
         <Outlet />
