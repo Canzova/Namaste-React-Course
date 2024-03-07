@@ -1,11 +1,5 @@
-
 import ReactDOM from "react-dom/client";
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Outlet,
-  useSearchParams,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 //! Importing components
@@ -17,15 +11,18 @@ import Error from "./components/Error";
 import Help from "./components/Help";
 import Cart from "./components/Cart";
 import RestMenu from "./components/RestMenu";
-
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 const Applayout = () => {
   return (
-    <div className="app">
-      <Header />
-      <Outlet />
-    </div>
+    <Provider store={appStore}>
+      <div className="app">
+        <Header />
+        <Outlet />
+      </div>
+    </Provider>
   );
 };
 

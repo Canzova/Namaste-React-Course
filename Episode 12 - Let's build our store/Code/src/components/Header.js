@@ -9,7 +9,7 @@ import { IoFastFoodSharp } from "react-icons/io5";
 import { BiSolidLogInCircle } from "react-icons/bi";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
+import {useSelector } from "react-redux";
 
 const Header = () => {
   /**
@@ -23,6 +23,9 @@ const Header = () => {
   const arr = useState("Login");
   const btn = arr[0];
   const setBtn = arr[1];
+
+  const cartItems = useSelector((store)=> store.cart.items);
+  //console.log(cartItems);
 
   return (
     <div className="flex items-center justify-between mx-5 shadow-lg">
@@ -58,7 +61,7 @@ const Header = () => {
           <Link to={"/cart"} className="ml-9 text-lg hover:text-[#fc8019]">
             <li className="flex items-center">
               <IoFastFoodSharp />
-              <span className="ml-2">Cart</span>
+              <span className="ml-2">Cart - {cartItems.length}</span>
             </li>
           </Link>
           <li className="flex items-center mx-9 text-lg  border-2 border-slate-300 w-28 px-7  py-1 rounded-md hover:border-[#fc8019] text-black">

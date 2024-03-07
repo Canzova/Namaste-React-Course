@@ -28,7 +28,7 @@ const useRestMenu = (restId) => {
       )
     });
 
-    console.log(updatedDishList);
+    //console.log(updatedDishList);
 
     setDishList(updatedDishList);
 
