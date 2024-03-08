@@ -14,15 +14,20 @@ import RestMenu from "./components/RestMenu";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 const root = ReactDOM.createRoot(document.getElementById("root"));
+import cartContext from "./utils/cartContext";
 
 const Applayout = () => {
+  const [cartData, setCartData] = useState([]);
+
   return (
-    <Provider store={appStore}>
-      <div className="app">
-        <Header />
-        <Outlet />
-      </div>
-    </Provider>
+    <cartContext.Provider value={{ items: cartData, setCartData }}>
+      <Provider store={appStore}>
+        <div className="app">
+          <Header />
+          <Outlet />
+        </div>
+      </Provider>
+    </cartContext.Provider>
   );
 };
 

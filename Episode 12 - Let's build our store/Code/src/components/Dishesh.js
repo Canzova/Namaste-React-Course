@@ -1,21 +1,39 @@
 import { CDN_LINK } from "../utils/constants";
 import white from "../../images/white.jpg";
 import { useDispatch } from "react-redux";
+import { useContext } from "react";
 
 //! Our Icons
 import { IoIosArrowUp } from "react-icons/io";
 import { IoIosArrowDown } from "react-icons/io";
 import { addItems } from "../utils/cartSlice";
+import cartContext from "../utils/cartContext";
 
 const Dishesh = ({ details, showItems, setShowIndex, setHideIndex }) => {
   const { title } = details;
-  const dispatch = useDispatch();
-  //console.log(dispatch);
 
-  const handleAdd = (item)=>{
+  const handleAddAll = (items) => {
+    handleAdd(items);
+    handleAdd2(items);
+  };
+
+  const dispatch = useDispatch();
+
+  const handleAdd = (item) => {
     //Dispatch
     dispatch(addItems(item));
-  }
+  };
+
+  const { items, setCartData } = useContext(cartContext);
+  const handleAdd2 = (item) => {
+    // Step 1: Create a new array with existing elements and the new element usig spread operator
+    const newItem = item;
+    const newArray = [...items, newItem];
+
+    // Step 2: Update the state with the new array
+    setCartData(newArray);
+    //console.log(newArray);
+  };
 
   const handleImageError = (event) => {
     event.target.src = white;
@@ -70,7 +88,8 @@ const Dishesh = ({ details, showItems, setShowIndex, setHideIndex }) => {
                     />
                     <button
                       className="absolute text-base bg-white shadow-inner text-green-800  border-2 border-slate-300 w-24 px-4  py-1 rounded-md font-bold bottom-[.9rem] left-[1rem]  hover:brightness-110 transition-all duration-300
-                      " onClick={()=> handleAdd(item)}
+                      "
+                      onClick={() => handleAddAll(item)}
                     >
                       ADD
                     </button>

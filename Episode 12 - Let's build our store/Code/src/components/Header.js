@@ -9,7 +9,9 @@ import { IoFastFoodSharp } from "react-icons/io5";
 import { BiSolidLogInCircle } from "react-icons/bi";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import {useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import { useContext } from "react";
+import cartContext from "../utils/cartContext";
 
 const Header = () => {
   /**
@@ -24,9 +26,10 @@ const Header = () => {
   const btn = arr[0];
   const setBtn = arr[1];
 
-  const cartItems = useSelector((store)=> store.cart.items);
-  //console.log(cartItems);
+  const cartItems = useSelector((store) => store.cart.items);
+  console.log(cartItems);
 
+  const { items } = useContext(cartContext);
   return (
     <div className="flex items-center justify-between mx-5 shadow-lg">
       <div className="logo-container h-28 w-28 ml-8 mix-blend-color-burn">
@@ -62,6 +65,12 @@ const Header = () => {
             <li className="flex items-center">
               <IoFastFoodSharp />
               <span className="ml-2">Cart - {cartItems.length}</span>
+            </li>
+          </Link>
+          <Link to={"/cart"} className="ml-9 text-lg hover:text-[#fc8019]">
+            <li className="flex items-center">
+              <IoFastFoodSharp />
+              <span className="ml-2">Context-Cart - {items?.length}</span>
             </li>
           </Link>
           <li className="flex items-center mx-9 text-lg  border-2 border-slate-300 w-28 px-7  py-1 rounded-md hover:border-[#fc8019] text-black">
