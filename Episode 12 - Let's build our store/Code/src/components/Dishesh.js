@@ -21,7 +21,7 @@ const Dishesh = ({ details, showItems, setShowIndex, setHideIndex }) => {
 
   const handleAdd = (item) => {
     //Dispatch
-    dispatch(addItems(item));
+    return dispatch(addItems(item));
   };
 
   const { items, setCartData } = useContext(cartContext);

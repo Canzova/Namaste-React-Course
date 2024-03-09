@@ -1,7 +1,5 @@
 import { useSelector } from "react-redux";
 import { CDN_LINK } from "../utils/constants";
-import { useState } from "react";
-import Dishesh from "./Dishesh";
 const Cart = () => {
   const data = useSelector((store) => store.cart.items);
   // console.log(data);

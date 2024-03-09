@@ -27,7 +27,7 @@ const Header = () => {
   const setBtn = arr[1];
 
   const cartItems = useSelector((store) => store.cart.items);
-  console.log(cartItems);
+  //console.log(cartItems); 
 
   const { items } = useContext(cartContext);
   return (
