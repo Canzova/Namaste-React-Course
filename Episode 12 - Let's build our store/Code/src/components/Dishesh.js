@@ -1,7 +1,8 @@
 import { CDN_LINK } from "../utils/constants";
 import white from "../../images/white.jpg";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useContext } from "react";
+import toast from "react-hot-toast";
 
 //! Our Icons
 import { IoIosArrowUp } from "react-icons/io";
@@ -12,16 +13,18 @@ import cartContext from "../utils/cartContext";
 const Dishesh = ({ details, showItems, setShowIndex, setHideIndex }) => {
   const { title } = details;
 
-  const handleAddAll = (items) => {
-    handleAdd(items);
-    handleAdd2(items);
+  const handleAddAll = (items, quantity) => {
+    handleAdd(items, quantity);
+    //handleAdd2(items);
   };
 
   const dispatch = useDispatch();
-
-  const handleAdd = (item) => {
+  const data = useSelector((store) => store.cart.items);
+  const handleAdd = (item, quantity) => {
     //Dispatch
-    return dispatch(addItems(item));
+    //console.log(data);
+    dispatch(addItems({ ...item?.card, quantity: quantity }));
+    toast.success("Added to Cart");
   };
 
   const { items, setCartData } = useContext(cartContext);
@@ -89,7 +92,7 @@ const Dishesh = ({ details, showItems, setShowIndex, setHideIndex }) => {
                     <button
                       className="absolute text-base bg-white shadow-inner text-green-800  border-2 border-slate-300 w-24 px-4  py-1 rounded-md font-bold bottom-[.9rem] left-[1rem]  hover:brightness-110 transition-all duration-300
                       "
-                      onClick={() => handleAddAll(item)}
+                      onClick={() => handleAddAll(item, 1)}
                     >
                       ADD
                     </button>

@@ -7,22 +7,38 @@ const cartSlice = createSlice({
   },
   reducers: {
     addItems: (state, action) => {
-      /**
-       * In vanila(Older version of) redux
-       * ? We could not mutate/update our state directly
-       * ? There we need to return the updated value of our state
-       */
+      const existingElementIndex = state.items.findIndex((item) => {
+        return item?.info?.id === action.payload?.info.id;
+      });
 
-      // const newArray = [...state];
-      // newArray.items.push(action.payload);
-      // return newArray;
+      if (existingElementIndex >= 0) {
+        state.items[existingElementIndex].quantity += 1;
+      } else {
+        state.items.push(action.payload);
+      }
+    },
 
-      // In Redux-Toolkit have to directly mutating/updating our state and not returning anything
-      state.items.push(action.payload)
+    increaseItems: (state, action) => {
+      // If quantity is >1 decrease it by 1
+      const index = state.items.findIndex((item) => {
+        return item?.info?.id === action.payload?.info?.id;
+      });
+
+      state.items[index].quantity += 1;
     },
-    removeItems: (state) => {
-      state.items.pop();
+
+    decreaseItems: (state, action) => {
+      const index = state.items.findIndex((item) => {
+        return item?.info?.id === action.payload?.info?.id;
+      });
+      // If quantity is >1 decrease it by 1
+      if (action.payload.quantity > 1) {
+        state.items[index].quantity -= 1;
+      } else {
+        state.items.splice(index, 1);
+      }
     },
+
     clearItems: (state) => {
       //return({items : []});
       state.items.length = 0;
@@ -30,5 +46,10 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addItems, removeItems, clearItems } = cartSlice.actions;
+export const {
+  addItems,
+  clearItems,
+  increaseItems,
+  decreaseItems,
+} = cartSlice.actions;
 export default cartSlice.reducer;

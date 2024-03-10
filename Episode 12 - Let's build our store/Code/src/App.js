@@ -1,6 +1,7 @@
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { Toaster } from "react-hot-toast";
 
 //! Importing components
 import Header from "./components/Header";
@@ -25,6 +26,18 @@ const Applayout = () => {
         <div className="app">
           <Header />
           <Outlet />
+          <Toaster
+            position="top-center"
+            reverseOrder={false}
+            toastOptions={{
+
+              duration: 3000,
+              style: {
+                background: "#363636",
+                color: "#fff",
+              },
+            }}
+          />
         </div>
       </Provider>
     </cartContext.Provider>
