@@ -67,6 +67,6 @@ describe("Checking help page", () => {
 
     // This will give you a virtual dom Rect Element---> Jsx----> Js Object
     // Also node as react fibre node
-    console.log(button);
+    //console.log(button);
   });
 });

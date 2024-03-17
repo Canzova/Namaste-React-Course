@@ -20,9 +20,7 @@ const Header = () => {
    *!---> If in the dependency array we have any state varibale then the useEffect's callback function will be called on 2 occations : 1. After the initial rendering, 2. Whenever their is a change in that state variable
    */
 
-  const arr = useState("Login");
-  const btn = arr[0];
-  const setBtn = arr[1];
+  const [btn, setBtn] = useState("Login");
 
   const cartItems = useSelector((store) => store.cart.items);
   //console.log(cartItems);
@@ -30,7 +28,8 @@ const Header = () => {
   return (
     <div className="flex items-center justify-between mx-5 shadow-lg">
       <div className="logo-container h-28 w-28 ml-8 mix-blend-color-burn">
-        <img className="logo" src={QuickEats} alt="logo" />
+        {/* For testing i am removing image tag, because with image tag it is showing an error */}
+        {/* <img className="logo" src={QuickEats} alt="logo" /> */}
       </div>
       <div className="nav-items">
         <ul className="flex justify-center items-center mx-4">
