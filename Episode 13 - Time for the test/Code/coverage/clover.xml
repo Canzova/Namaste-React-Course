@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1710681880945" clover="3.2.0">
-  <project timestamp="1710681880945" name="All files">
-    <metrics statements="25" coveredstatements="11" conditionals="6" coveredconditionals="1" methods="12" coveredmethods="5" elements="43" coveredelements="17" complexity="0" loc="25" ncloc="25" packages="3" files="5" classes="5"/>
+<coverage generated="1710776995242" clover="3.2.0">
+  <project timestamp="1710776995243" name="All files">
+    <metrics statements="37" coveredstatements="21" conditionals="8" coveredconditionals="2" methods="15" coveredmethods="6" elements="60" coveredelements="29" complexity="0" loc="37" ncloc="37" packages="3" files="7" classes="7"/>
     <package name="src">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="sum.js" path="F:\Namste React\Codes\Episode 13 - Time for the test\Code\src\sum.js">
@@ -10,13 +10,13 @@
       </file>
     </package>
     <package name="src.components">
-      <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="1" methods="4" coveredmethods="4"/>
+      <metrics statements="16" coveredstatements="14" conditionals="4" coveredconditionals="2" methods="7" coveredmethods="5"/>
       <file name="Header.js" path="F:\Namste React\Codes\Episode 13 - Time for the test\Code\src\components\Header.js">
         <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="3"/>
         <line num="14" count="1" type="stmt"/>
-        <line num="23" count="4" type="stmt"/>
-        <line num="25" count="7" type="stmt"/>
-        <line num="28" count="4" type="stmt"/>
+        <line num="23" count="5" type="stmt"/>
+        <line num="25" count="9" type="stmt"/>
+        <line num="28" count="5" type="stmt"/>
         <line num="70" count="1" type="cond" truecount="1" falsecount="1"/>
       </file>
       <file name="Help.js" path="F:\Namste React\Codes\Episode 13 - Time for the test\Code\src\components\Help.js">
@@ -24,9 +24,21 @@
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="6" type="stmt"/>
       </file>
+      <file name="RestCard.js" path="F:\Namste React\Codes\Episode 13 - Time for the test\Code\src\components\RestCard.js">
+        <metrics statements="9" coveredstatements="7" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="1"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+      </file>
     </package>
     <package name="src.utils">
-      <metrics statements="17" coveredstatements="3" conditionals="4" coveredconditionals="0" methods="7" coveredmethods="0"/>
+      <metrics statements="20" coveredstatements="6" conditionals="4" coveredconditionals="0" methods="7" coveredmethods="0"/>
       <file name="appStore.js" path="F:\Namste React\Codes\Episode 13 - Time for the test\Code\src\utils\appStore.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="3" count="1" type="stmt"/>
@@ -49,6 +61,12 @@
         <line num="38" count="0" type="stmt"/>
         <line num="44" count="0" type="stmt"/>
         <line num="54" count="1" type="stmt"/>
+      </file>
+      <file name="constants.js" path="F:\Namste React\Codes\Episode 13 - Time for the test\Code\src\utils\constants.js">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
       </file>
     </package>
   </project>

@@ -5,6 +5,7 @@ import { GiFruitBowl } from "react-icons/gi";
 const RestCard = (props) => {
   //? Destructuring our props
   const { restInfo } = props;
+  //console.log(restInfo);
   const { name, avgRating, cuisines, cloudinaryImageId } = restInfo?.info;
   const { deliveryTime } = restInfo?.info.sla;
   return (

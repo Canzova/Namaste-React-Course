@@ -38,7 +38,7 @@ it("Should render the login button and change to logout on click", () => {
   expect(logoutBtn).toBeInTheDocument();
 });
 
-it("Should render card with 0 items", ()=>{
+it("Should render card with 0 items", () => {
   render(
     <Provider store={appStore}>
       <BrowserRouter>
@@ -47,6 +47,19 @@ it("Should render card with 0 items", ()=>{
     </Provider>
   );
 
-  const card = screen.getByRole("link", {name : "Cart - 0"});
+  const card = screen.getByRole("link", { name: "Cart - 0" });
   expect(card).toBeInTheDocument();
-})
+});
+
+it("Should render card with regex", () => {
+  render(
+    <Provider store={appStore}>
+      <BrowserRouter>
+        <Header />
+      </BrowserRouter>
+    </Provider>
+  );
+
+  const card = screen.getByText(/Cart/);
+  expect(card).toBeInTheDocument();
+});
