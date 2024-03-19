@@ -1,0 +1,62 @@
+{
+    "info": {
+        "id": "258731",
+        "name": "Kwality Walls Frozen Dessert and Ice Cream Shop",
+        "cloudinaryImageId": "uwrguys0q06dca1uzzyx",
+        "locality": "Bhilai Nagar Township",
+        "areaName": "Durg Bhilai",
+        "costForTwo": "₹100 for two",
+        "cuisines": [
+            "Desserts",
+            "Ice Cream",
+            "Ice Cream Cakes"
+        ],
+        "avgRating": 4.5,
+        "veg": true,
+        "parentId": "582",
+        "avgRatingString": "4.5",
+        "totalRatingsString": "1K+",
+        "sla": {
+            "deliveryTime": 34,
+            "lastMileTravel": 1.8,
+            "serviceability": "SERVICEABLE",
+            "slaString": "30-35 mins",
+            "lastMileTravelString": "1.8 km",
+            "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+            "nextCloseTime": "2024-03-18 22:30:00",
+            "opened": true
+        },
+        "badges": {},
+        "isOpen": true,
+        "type": "F",
+        "badgesV2": {
+            "entityBadges": {
+                "imageBased": {},
+                "textBased": {},
+                "textExtendedBadges": {}
+            }
+        },
+        "aggregatedDiscountInfoV3": {
+            "header": "50% OFF",
+            "subHeader": "UPTO ₹80"
+        },
+        "differentiatedUi": {
+            "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+            "differentiatedUiMediaDetails": {
+                "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+                "lottie": {},
+                "video": {}
+            }
+        },
+        "reviewsSummary": {},
+        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+        "restaurantOfferPresentationInfo": {}
+    },
+    "analytics": {},
+    "cta": {
+        "link": "https://www.swiggy.com/restaurants/kwality-walls-frozen-dessert-and-ice-cream-shop-nagar-township-durg-bhilai-bhilai-258731",
+        "type": "WEBLINK"
+    }
+}

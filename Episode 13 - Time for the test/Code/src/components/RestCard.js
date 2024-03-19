@@ -9,7 +9,10 @@ const RestCard = (props) => {
   const { name, avgRating, cuisines, cloudinaryImageId } = restInfo?.info;
   const { deliveryTime } = restInfo?.info.sla;
   return (
-    <div className="flex flex-col h-[18rem] w-[15rem] hover:scale-[.97] rounded-3xl transition-all duration-100 ease-in-out">
+    <div
+      data-testid="RestList"
+      className="flex flex-col h-[18rem] w-[15rem] hover:scale-[.97] rounded-3xl transition-all duration-100 ease-in-out"
+    >
       <div className=" h-[55%] rounded-3xl overflow-hidden">
         <img
           className=" object-cover rounded-3xl h-[100%] w-[100%]"
@@ -40,8 +43,8 @@ export const RestCardWithLabel = (RestCard) => {
       <div>
         <div className="relative z-50">
           <div className="absolute flex justify-start items-center bg-green-800 rounded-lg shadow-inner px-2">
-          <GiFruitBowl className="text-white text-2xl mr-2 " />
-          <h3 className="text-xs text-white font-title">PURE VEG</h3>
+            <GiFruitBowl className="text-white text-2xl mr-2 " />
+            <h3 className="text-xs text-white font-title">PURE VEG</h3>
           </div>
         </div>
         <RestCard {...props} />

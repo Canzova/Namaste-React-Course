@@ -18,7 +18,6 @@ const Body = () => {
   const [topRestaurants2, setTopRestaurants2] = useState([]);
   const [isSearchNotFound, setIsSearchNotFound] = useState(false);
 
-
   // useEffect
   useEffect(() => {
     fetchData();
@@ -107,6 +106,8 @@ const Body = () => {
       <div className="flex justify-between mx-20">
         <div className="">
           <input
+          // Test id for testing
+          data-testid = "searchInput"
             type="text"
             className="border-2 border-slate-300 rounded-md focus:outline-none px-3 focus:border-[#fc8019] py-1"
             value={searchText}
@@ -115,6 +116,7 @@ const Body = () => {
             }}
           />
           <button
+            data-itemid="searchBtn"
             className="mx-4 "
             onClick={() => {
               handleSearch();
