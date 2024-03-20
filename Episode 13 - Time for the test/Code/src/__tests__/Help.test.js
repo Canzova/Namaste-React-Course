@@ -3,6 +3,24 @@ import Help from "../components/Help";
 import "@testing-library/jest-dom/jest-globals";
 
 describe("Checking help page", () => {
+  
+  // // Helper functions
+  // beforeAll(() => {
+  //   console.log("Before All");
+  // });
+
+  // beforeEach(() => {
+  //   console.log("Before Each");
+  // });
+
+  // afterAll(() => {
+  //   console.log("After All");
+  // });
+
+  // afterEach(() => {
+  //   console.log("After Each");
+  // });
+
   test("Heading of the Help Page should be loaded", () => {
     // Rendering onto js dom
     render(<Help />);

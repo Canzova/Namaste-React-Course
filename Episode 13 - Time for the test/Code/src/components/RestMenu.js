@@ -21,6 +21,8 @@ const RestMenu = () => {
   // Using custom hook
   const [restData, offers, dishList] = useRestMenu(restId);
 
+  //console.log(restData);
+
   if (restData === null) {
     return <Shimmer />;
   }
@@ -44,7 +46,7 @@ const RestMenu = () => {
   const { message } = restData?.feeDetails;
 
   return (
-    <div className="mx-52 my-10">
+    <div data-itemid="RestMenu" className="mx-52 my-10">
       <div className="flex flex-col justify-center items-between">
         <h1 className="font-title font-bold text-xl text-gray-800">{name}</h1>
         <div className="flex justify-between items-start border-b-[.5px] border-dashed border-[#d5d6df]">

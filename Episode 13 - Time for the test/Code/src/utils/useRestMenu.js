@@ -16,16 +16,18 @@ const useRestMenu = (restId) => {
 
     const JSON = await data.json();
 
+    //console.log(JSON);
     // List of dishesh
     // console.log(JSON?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards);
     const dish =
       JSON?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
 
-    // console.log(dish);
+    //console.log(dish);
     const updatedDishList = dish.filter((item, index) => {
-      return(
-        item?.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
-      )
+      return (
+        item?.card?.card?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+      );
     });
 
     //console.log(updatedDishList);
@@ -43,7 +45,6 @@ const useRestMenu = (restId) => {
     // For Top Picks
     //console.log(JSON?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.carousel)
   };
-
   return [restData, offers, dishList];
 };
 export default useRestMenu;

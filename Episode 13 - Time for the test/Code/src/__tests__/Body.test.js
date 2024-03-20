@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import Body from "../components/Body";
 import MOCK_DATA from "../Mock Data/Body_Content_data.json";
+// Make a not from where act is coming
 import { act } from "react-dom/test-utils";
 import { BrowserRouter } from "react-router-dom";
 import "@testing-library/jest-dom";
@@ -18,6 +19,8 @@ global.fetch = jest.fn(() => {
   // fetch function returns a promise
   return Promise.resolve({
     // We convert that promise into json using .json() function which again returns a promise
+
+    // So we are creating a function named as json which is returning another promise which resolve our mock data
     json: () => {
       return Promise.resolve(MOCK_DATA);
     },
