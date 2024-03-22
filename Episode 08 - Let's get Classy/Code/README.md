@@ -1,4 +1,14 @@
-## Episode 08 - Let's get Classy
+### Episode-08 | Let's Get Classy 🎩
+
+Welcome to Episode 08 - **Let's Get Classy** 👔
+
+In this episode, we dive into Class-based components and their lifecycles.
+
+#### Topics Covered:
+- Class-based components
+- Lifecycle methods
+- Optimization
+- Suspense Component
 
 ### Life Cycle of Class Based Component
 
