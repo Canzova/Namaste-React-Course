@@ -1,4 +1,23 @@
-# Episode 06 - Exploring the world
+### Episode-06 | Exploring the World 🌍
+
+Welcome to Episode 06 - **Exploring the World** 🌐
+
+In this episode, we gain insights into architecture, useEffect hook, and working with APIs.
+
+#### Topics Covered:
+- Architecture, useEffect
+- Conditional Rendering
+- API usage
+
+### Episode-6.1 | Swiggy API Issue Resolved 🛠️
+
+Welcome to Episode 6.1 - **Swiggy API Issue Resolved** 🚧
+
+In this video, we resolve all the issues related to the Swiggy API, ensuring smooth project operation.
+
+### Episode-6.2 | CORS Plugin Issue Solved 🔄
+
+Welcome to Episode 6.2 - **CORS Plugin Issue Solved** 🔁
 
 ## Why onClick={update()} won't work ?
 
