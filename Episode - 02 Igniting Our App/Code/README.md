@@ -1,3 +1,15 @@
+### Episode-02 | Igniting our App 🔥
+
+Welcome to Episode 02 - **Igniting our App** 🚀
+
+In this episode, we delve into essential package managers and module bundlers crucial for React projects.
+
+#### Topics Covered:
+- npm, Parcel
+- Node modules
+- React app file structure
+
+
 # Parcel
 
 - Dev Server : dist
