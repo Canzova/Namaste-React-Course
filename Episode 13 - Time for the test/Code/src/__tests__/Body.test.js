@@ -9,7 +9,7 @@ import "@testing-library/jest-dom";
 /**
  * ! Fetch function is give to us by Browser, and here are not rendering our comonents on Browser
  * ? We are rendering our body component on jsDom which is browser like, not actual browser, it doest have fetch into it
- * Todo : There for we are facking a fetch dunction, we are creating a dummy fetch function
+ * Todo : There for we are facking a fetch function, we are creating a dummy fetch function
  *
  * ! global.fetch : It will find the fetch function globally and replace it with given function
  * ! jest.fn() --- > It will baiscally create a function
