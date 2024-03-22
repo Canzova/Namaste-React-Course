@@ -1,4 +1,11 @@
-## Episode 13 - Time for the test
+### Episode-13 | Time for Test ⏰
+
+Welcome to Episode 13 - **Time for Test** 🧪
+
+In this episode, we dive into comprehensive testing with Jest and React Testing Library.
+
+#### Topics Covered:
+- Jest, React Testing Library
 
 ### Error : Support for the experimental syntax 'jsx' isn't currently enabled
 
