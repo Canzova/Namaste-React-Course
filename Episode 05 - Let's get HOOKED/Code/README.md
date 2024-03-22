@@ -1,4 +1,13 @@
-# Episode 05 - Let's get HOOKED
+### Episode-05 | Let's Get Hooked 🎣
+
+Welcome to Episode 05 - **Let's Get Hooked** 🪝
+
+In this episode, we explore React Hooks and understand their importance.
+
+#### Topics Covered:
+- File structure
+- Import/export
+- React Hooks (useState)
 
 ## Filtering the top rated restraurants
   const update = () => {
