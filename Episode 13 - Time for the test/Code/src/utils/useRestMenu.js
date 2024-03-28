@@ -16,7 +16,8 @@ const useRestMenu = (restId) => {
 
     const JSON = await data.json();
 
-    //console.log(JSON);
+    
+    // console.log(JSON);
     // List of dishesh
     // console.log(JSON?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards);
     const dish =

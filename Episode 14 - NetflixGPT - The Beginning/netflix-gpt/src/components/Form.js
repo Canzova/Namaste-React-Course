@@ -1,20 +1,52 @@
 import { useState } from "react";
 const Form = () => {
+  const [show, setShow] = useState(false);
+  const [signIn, setsignIn] = useState("Sign In");
+  const [newNetflix, setnewNetflix] = useState([
+    "New to Netflix ?",
+    "Sign Up now.",
+  ]);
   const hanldeOnclick = (e) => {
     e.preventDefault();
     show === false ? setShow(true) : setShow(false);
   };
 
-  const [show, setShow] = useState(false);
-
+  const togglesignUp = () => {
+    signIn === "Sign In" ? setsignIn("Sign Up") : setsignIn("Sign In");
+    newNetflix[0] === "New to Netflix ?"
+      ? setnewNetflix(["Already registered", "Sign In now."])
+      : setnewNetflix(["New to Netflix ?", "Sign Up now."]);
+  };
   return (
-    <div className="absolute top-[10%] left-[50%] translate-x-[-50%] after:absolute after:bg-black after:inset-0 after:opacity-80">
-      <form
-        action=""
-        className=" text-white p-16 z-30 relative w-[28rem] h-[45rem]"
-      >
-        <h1 className="text-4xl font-bold pb-8">Sign In</h1>
-        <div className="flex flex-col items-start justify-center">
+    // Insted of using ::after you can simply give a background to this and set bg-opacity as 60% or something
+    <div className="absolute top-[15%] left-[50%] translate-x-[-50%] after:absolute after:bg-black after:inset-0 after:opacity-80">
+      <form action="" className="text-white p-16 z-30 relative w-[28rem]">
+        <div className="flex flex-col items-center justify-center">
+          <h1 className="text-4xl font-bold pb-8">{signIn}</h1>
+          {signIn === "Sign Up" && (
+            <input
+              type="text"
+              placeholder="First Name"
+              className="mb-4 p-4 bg-transparent border-2 border-white rounded-lg w-72 h-14 outline-none"
+            />
+          )}
+          {signIn === "Sign Up" && (
+            <input
+              type="text"
+              placeholder="Last Name"
+              className="mb-4 p-4 bg-transparent border-2 border-white rounded-lg w-72 h-14 outline-none"
+            />
+          )}
+          {/* <input
+            type="text"
+            placeholder="First Name"
+            className={`mb-4 p-4 bg-transparent border-2 border-white rounded-lg w-72 h-14 outline-none  ${ signIn === 'Sign Up' ? 'block' : 'hidden'}`}
+          />
+          <input
+            type="text"
+            placeholder="Last Name"
+            className={`mb-4 p-4 bg-transparent border-2 border-white rounded-lg w-72 h-14 outline-none  ${ signIn === 'Sign Up' ? 'block' : 'hidden'}`}
+          /> */}
           <input
             type="email"
             placeholder="Email or Phone Number"
@@ -26,19 +58,25 @@ const Form = () => {
             className="mb-4 p-4 bg-transparent border-2 border-white rounded-lg w-72 h-14 outline-none"
           />
           <button className="rounded-lg  mb-4 bg-[red] w-72 h-12 p-2 hover:bg-red-600 font-bold">
-            Sign In
+            {signIn}
           </button>
-          <div className="mb-4x m-auto">Forgot Password ?</div>
+          <div className="mb-2 m-auto">Forgot Password ?</div>
         </div>
 
         {/* Form Bottom */}
-        <div className=" mt-20">
+        <div className=" mt-14">
           <div className="flex items-center justify-start mb-2">
             <button className="p-2 border-2 border-white mr-3"></button>
             <div>Remember me </div>
           </div>
           <div className="pb-2">
-            New to Netflix ? <span className="font-bold">Sign up now.</span>
+            {newNetflix[0] + " "}
+            <span
+              className="font-bold hover:border-b-2 border-white cursor-pointer"
+              onClick={togglesignUp}
+            >
+              {newNetflix[1]}
+            </span>
           </div>
           <span className="text-sm">
             This page is protected by Google reCAPTCHA to <br /> ensure you're
@@ -50,15 +88,18 @@ const Form = () => {
               Learn more.
             </button>
           </span>
-          {show && (
-            <div className="mt-2 text-sm transition-all duration-200 ease-in-out">
-              The information collected by Google reCAPTCHA is subject to the
-              Google Privacy Policy and Terms of Service, and is used for
-              providing, maintaining, and improving the reCAPTCHA service and
-              for general security purposes (it is not used for personalised
-              advertising by Google).
-            </div>
-          )}
+
+          <div
+            className={`mt-2 text-sm transition-opacity duration-300 ease-in-out ${
+              show ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            The information collected by Google reCAPTCHA is subject to the
+            Google Privacy Policy and Terms of Service, and is used for
+            providing, maintaining, and improving the reCAPTCHA service and for
+            general security purposes (it is not used for personalised
+            advertising by Google).
+          </div>
         </div>
       </form>
     </div>
