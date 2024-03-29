@@ -1,11 +1,18 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { formSubmission } from "../utils/formSubmission";
 const Form = () => {
   const [show, setShow] = useState(false);
   const [signIn, setsignIn] = useState("Sign In");
+  const [errorMessage, seterrorMessage] = useState(null);
   const [newNetflix, setnewNetflix] = useState([
     "New to Netflix ?",
     "Sign Up now.",
   ]);
+
+  // Declring useRef
+  const email = useRef();
+  const password = useRef();
+
   const hanldeOnclick = (e) => {
     e.preventDefault();
     show === false ? setShow(true) : setShow(false);
@@ -17,10 +24,28 @@ const Form = () => {
       ? setnewNetflix(["Already registered", "Sign In now."])
       : setnewNetflix(["New to Netflix ?", "Sign Up now."]);
   };
+
+  // Authentication
+  const handleFormSubmission = (e) => {
+    //e.preventDefault();
+    // console.log(email.current.value);
+    // console.log(password.current.value);
+    let data = null;
+    if (email.current.value.length !== 0) {
+      data = formSubmission(email.current.value, password.current.value);
+    }
+    //console.log(data);
+    seterrorMessage(data);
+  };
+
   return (
     // Insted of using ::after you can simply give a background to this and set bg-opacity as 60% or something
     <div className="absolute top-[15%] left-[50%] translate-x-[-50%] after:absolute after:bg-black after:inset-0 after:opacity-80">
-      <form action="" className="text-white p-16 z-30 relative w-[28rem]">
+      <form
+        onSubmit={(e) => e.preventDefault()}
+        action=""
+        className="text-white p-16 z-30 relative w-[28rem]"
+      >
         <div className="flex flex-col items-center justify-center">
           <h1 className="text-4xl font-bold pb-8">{signIn}</h1>
           {signIn === "Sign Up" && (
@@ -28,6 +53,7 @@ const Form = () => {
               type="text"
               placeholder="First Name"
               className="mb-4 p-4 bg-transparent border-2 border-white rounded-lg w-72 h-14 outline-none"
+              required
             />
           )}
           {signIn === "Sign Up" && (
@@ -48,16 +74,25 @@ const Form = () => {
             className={`mb-4 p-4 bg-transparent border-2 border-white rounded-lg w-72 h-14 outline-none  ${ signIn === 'Sign Up' ? 'block' : 'hidden'}`}
           /> */}
           <input
+            ref={email}
             type="email"
             placeholder="Email or Phone Number"
             className="mb-4 p-4 bg-transparent border-2 border-white rounded-lg w-72 h-14 outline-none"
+            required
           />
           <input
+            ref={password}
             type="password"
             placeholder="Password"
             className="mb-4 p-4 bg-transparent border-2 border-white rounded-lg w-72 h-14 outline-none"
           />
-          <button className="rounded-lg  mb-4 bg-[red] w-72 h-12 p-2 hover:bg-red-600 font-bold">
+          <div className="text-sm text-[red] mb-4 text-center">
+            {errorMessage}
+          </div>
+          <button
+            className="rounded-lg  mb-4 bg-[red] w-72 h-12 p-2 hover:bg-red-600 font-bold"
+            onClick={handleFormSubmission}
+          >
             {signIn}
           </button>
           <div className="mb-2 m-auto">Forgot Password ?</div>
