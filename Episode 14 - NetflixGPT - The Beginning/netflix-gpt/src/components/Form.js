@@ -40,57 +40,51 @@ const Form = () => {
 
   return (
     // Insted of using ::after you can simply give a background to this and set bg-opacity as 60% or something
-    <div className="absolute top-[15%] left-[50%] translate-x-[-50%] after:absolute after:bg-black after:inset-0 after:opacity-80">
+    <div className="absolute top-[10%] left-[50%] translate-x-[-50%] after:absolute after:bg-black after:inset-0 after:opacity-80">
       <form
         onSubmit={(e) => e.preventDefault()}
         action=""
-        className="text-white p-16 z-30 relative w-[28rem]"
+        className="text-white pt-4 pb-2 px-10 z-30 relative w-[28rem]"
       >
         <div className="flex flex-col items-center justify-center">
-          <h1 className="text-4xl font-bold pb-8">{signIn}</h1>
+          <h1 className="text-4xl font-bold pt-0 pb-4">{signIn}</h1>
           {signIn === "Sign Up" && (
             <input
               type="text"
-              placeholder="First Name"
-              className="mb-4 p-4 bg-transparent border-2 border-white rounded-lg w-72 h-14 outline-none"
+              placeholder="Name"
+              className="mb-2 p-2 bg-[#272936] border-[1px] border-white rounded-md w-[100%] h-12 outline-none"
               required
             />
           )}
-          {signIn === "Sign Up" && (
-            <input
-              type="text"
-              placeholder="Last Name"
-              className="mb-4 p-4 bg-transparent border-2 border-white rounded-lg w-72 h-14 outline-none"
-            />
-          )}
+
           {/* <input
             type="text"
             placeholder="First Name"
-            className={`mb-4 p-4 bg-transparent border-2 border-white rounded-lg w-72 h-14 outline-none  ${ signIn === 'Sign Up' ? 'block' : 'hidden'}`}
+            className={`mb-2 p-2 bg-[#272936] border-[1px] border-white rounded-md  w-[100%] h-12 outline-none  ${ signIn === 'Sign Up' ? 'block' : 'hidden'}`}
           />
           <input
             type="text"
             placeholder="Last Name"
-            className={`mb-4 p-4 bg-transparent border-2 border-white rounded-lg w-72 h-14 outline-none  ${ signIn === 'Sign Up' ? 'block' : 'hidden'}`}
+            className={`mb-2 p-2 bg-[#272936] border-[1px] border-white rounded-md  w-[100%] h-12 outline-none  ${ signIn === 'Sign Up' ? 'block' : 'hidden'}`}
           /> */}
           <input
             ref={email}
             type="email"
             placeholder="Email or Phone Number"
-            className="mb-4 p-4 bg-transparent border-2 border-white rounded-lg w-72 h-14 outline-none"
+            className="mb-2 p-2 bg-[#272936] border-[1px] border-white rounded-md  w-[100%] h-12 outline-none"
             required
           />
           <input
             ref={password}
             type="password"
             placeholder="Password"
-            className="mb-4 p-4 bg-transparent border-2 border-white rounded-lg w-72 h-14 outline-none"
+            className="mb-2 p-2 border-[1px] border-white rounded-md  w-[100%] h-12 outline-none bg-[#272936]"
           />
-          <div className="text-sm text-[red] mb-4 text-center">
+          <div className="text-sm text-[red] mb-2 text-center">
             {errorMessage}
           </div>
           <button
-            className="rounded-lg  mb-4 bg-[red] w-72 h-12 p-2 hover:bg-red-600 font-bold"
+            className="rounded-md   mb-2 bg-[red] w-[100%] h-12 py-2 hover:bg-red-600 font-bold"
             onClick={handleFormSubmission}
           >
             {signIn}
@@ -99,9 +93,9 @@ const Form = () => {
         </div>
 
         {/* Form Bottom */}
-        <div className=" mt-14">
+        <div className="mt-7 pb-2">
           <div className="flex items-center justify-start mb-2">
-            <button className="p-2 border-2 border-white mr-3"></button>
+            <button className="p-2 border-[1px] border-white mr-3"></button>
             <div>Remember me </div>
           </div>
           <div className="pb-2">
