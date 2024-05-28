@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import { formSubmission } from "../utils/formSubmission";
+import { useTranslation } from "react-i18next";
 const Form = () => {
   const [show, setShow] = useState(false);
   const [signIn, setsignIn] = useState("Sign In");
@@ -38,9 +39,11 @@ const Form = () => {
     seterrorMessage(data);
   };
 
+  const { t } = useTranslation();
+
   return (
     // Insted of using ::after you can simply give a background to this and set bg-opacity as 60% or something
-    <div className="absolute top-[10%] left-[50%] translate-x-[-50%] after:absolute after:bg-black after:inset-0 after:opacity-80">
+    <div className="absolute top-[12%] left-[50%] translate-x-[-50%] after:absolute after:bg-black after:inset-0 after:opacity-80">
       <form
         onSubmit={(e) => e.preventDefault()}
         action=""
@@ -51,7 +54,7 @@ const Form = () => {
           {signIn === "Sign Up" && (
             <input
               type="text"
-              placeholder="Name"
+              placeholder={t("name")}
               className="mb-2 p-2 bg-[#272936] border-[1px] border-white rounded-md w-[100%] h-12 outline-none"
               required
             />
@@ -70,7 +73,7 @@ const Form = () => {
           <input
             ref={email}
             type="email"
-            placeholder="Email or Phone Number"
+            placeholder={t("email_or_phone_number")}
             className="mb-2 p-2 bg-[#272936] border-[1px] border-white rounded-md  w-[100%] h-12 outline-none"
             required
           />
@@ -89,13 +92,13 @@ const Form = () => {
           >
             {signIn}
           </button>
-          <div className="mb-2 m-auto">Forgot Password ?</div>
+          <div className="mb-2 m-auto">{ t("fp")}</div>
         </div>
 
         {/* Form Bottom */}
         <div className="mt-7 pb-2">
           <div className="flex items-center justify-start mb-2">
-            <button className="p-2 border-[1px] border-white mr-3"></button>
+            <input type="checkbox" className="p-2 border-[1px] border-white mr-3 h-5 w-5"></input>
             <div>Remember me </div>
           </div>
           <div className="pb-2">
