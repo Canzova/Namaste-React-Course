@@ -50,7 +50,9 @@ const Form = () => {
         className="text-white pt-4 pb-2 px-10 z-30 relative w-[28rem]"
       >
         <div className="flex flex-col items-center justify-center">
-          <h1 className="text-4xl font-bold pt-0 pb-4">{signIn}</h1>
+          <h1 className="text-4xl font-bold pt-0 pb-4">
+            {signIn === "Sign In" ? t("sign_in") : t("sign_up")}
+          </h1>
           {signIn === "Sign Up" && (
             <input
               type="text"
@@ -80,7 +82,7 @@ const Form = () => {
           <input
             ref={password}
             type="password"
-            placeholder="Password"
+            placeholder={t("password")}
             className="mb-2 p-2 border-[1px] border-white rounded-md  w-[100%] h-12 outline-none bg-[#272936]"
           />
           <div className="text-sm text-[red] mb-2 text-center">
@@ -90,34 +92,40 @@ const Form = () => {
             className="rounded-md   mb-2 bg-[red] w-[100%] h-12 py-2 hover:bg-red-600 font-bold"
             onClick={handleFormSubmission}
           >
-            {signIn}
+            {signIn === "Sign In" ? t("sign_in") : t("sign_up")}
           </button>
-          <div className="mb-2 m-auto">{ t("fp")}</div>
+          <div className="mb-2 m-auto">{t("fp")}</div>
         </div>
 
         {/* Form Bottom */}
         <div className="mt-7 pb-2">
           <div className="flex items-center justify-start mb-2">
-            <input type="checkbox" className="p-2 border-[1px] border-white mr-3 h-5 w-5"></input>
-            <div>Remember me </div>
+            <input
+              type="checkbox"
+              className="p-2 border-[1px] border-white mr-3 h-5 w-5"
+            ></input>
+            <div>{t("remember_me")}</div>
           </div>
           <div className="pb-2">
-            {newNetflix[0] + " "}
+            {newNetflix[0] === "New to Netflix ?"
+              ? t("new_to_netflix")
+              : t("alredy_registered") + " "}
             <span
               className="font-bold hover:border-b-2 border-white cursor-pointer"
               onClick={togglesignUp}
             >
-              {newNetflix[1]}
+              {newNetflix[1] === "Sign up now"
+                ? t("sign_up_now")
+                : t("sign_in_now") + " "}
             </span>
           </div>
           <span className="text-sm">
-            This page is protected by Google reCAPTCHA to <br /> ensure you're
-            not a bot.{" "}
+            {t("message")}
             <button
               onClick={hanldeOnclick}
               className="text-blue-600 hover:border-b-2 border-blue-600"
             >
-              Learn more.
+              {t("learn_more")}
             </button>
           </span>
 
@@ -126,11 +134,7 @@ const Form = () => {
               show ? "opacity-100" : "opacity-0"
             }`}
           >
-            The information collected by Google reCAPTCHA is subject to the
-            Google Privacy Policy and Terms of Service, and is used for
-            providing, maintaining, and improving the reCAPTCHA service and for
-            general security purposes (it is not used for personalised
-            advertising by Google).
+            {t("more_info")}
           </div>
         </div>
       </form>
