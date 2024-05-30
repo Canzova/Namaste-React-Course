@@ -6,6 +6,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 const Form = () => {
   const [show, setShow] = useState(false);
@@ -15,6 +16,7 @@ const Form = () => {
     "New to Netflix ?",
     "Sign Up now.",
   ]);
+  const navigate = useNavigate();
 
   // Declring useRef
   const email = useRef();
@@ -55,7 +57,8 @@ const Form = () => {
           .then((userCredential) => {
             // User Signed up
             const user = userCredential.user;
-            console.log(user);
+            //console.log(user);
+            navigate("/browse");
           })
           .catch((error) => {
             const errorCode = error.code;
@@ -72,7 +75,8 @@ const Form = () => {
           .then((userCredential) => {
             // User Signed in
             const user = userCredential.user;
-            console.log(user);
+            // console.log(user);
+            navigate("/browse");
           })
           .catch((error) => {
             const errorCode = error.code;
