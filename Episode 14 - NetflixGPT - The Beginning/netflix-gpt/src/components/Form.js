@@ -1,6 +1,12 @@
 import { useState, useRef } from "react";
 import { formSubmission } from "../utils/formSubmission";
 import { useTranslation } from "react-i18next";
+import { auth } from "../utils/firebase";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+
 const Form = () => {
   const [show, setShow] = useState(false);
   const [signIn, setsignIn] = useState("Sign In");
@@ -33,10 +39,48 @@ const Form = () => {
     // console.log(password.current.value);
     let data = null;
     if (email.current.value.length !== 0) {
-      data = formSubmission(email.current.value, password.current.value);
+      data = formSubmission(t, email.current.value, password.current.value);
     }
     //console.log(data);
     seterrorMessage(data);
+
+    if (data === null) {
+      // Sign Up
+      if (signIn === "Sign Up") {
+        createUserWithEmailAndPassword(
+          auth,
+          email.current.value,
+          password.current.value
+        )
+          .then((userCredential) => {
+            // User Signed up
+            const user = userCredential.user;
+            console.log(user);
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            seterrorMessage(errorCode + " " + errorMessage);
+          });
+      } else {
+        // Sign in
+        signInWithEmailAndPassword(
+          auth,
+          email.current.value,
+          password.current.value
+        )
+          .then((userCredential) => {
+            // User Signed in
+            const user = userCredential.user;
+            console.log(user);
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            seterrorMessage(errorCode + " " + errorMessage);
+          });
+      }
+    }
   };
 
   const { t } = useTranslation();
@@ -74,7 +118,7 @@ const Form = () => {
           /> */}
           <input
             ref={email}
-            type="email"
+            type="text"
             placeholder={t("email_or_phone_number")}
             className="mb-2 p-2 bg-[#272936] border-[1px] border-white rounded-md  w-[100%] h-12 outline-none"
             required

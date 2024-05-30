@@ -6,34 +6,37 @@ const Footer = () => {
     i18n.changeLanguage(lan);
   };
 
+  const { t } = useTranslation();
+
   return (
     <div className="h-[15rem] w-[100%] bg-black text-slate-300 p-12">
-      <h3 className="pb-8">Questions? Call 000-800-919-1694</h3>
+      <h3 className="pb-8">{t("ques")}</h3>
       <div className="flex justify-between items-start">
         <ul className="">
-          <li className="mb-4 border-b-2 border-slate-300 inline-block">FAQ</li>
-          <li className="mb-4 border-b-2 border-slate-300">
-            Cookie Preferences
-          </li>
+          <li className="mb-4 border-b-2 border-slate-300 inline-block">{t("faq")}</li>
+          <li className="mb-4 border-b-2 border-slate-300">{t("cookie")}</li>
         </ul>
         <ul>
           <li className="mb-4  border-b-2 border-slate-300 inline-block">
-            Help Centre
+            {t("help")}
           </li>
           <li className="mb-4  border-b-2 border-slate-300">
-            Corporate Information
+            {t("corporate")}
           </li>
         </ul>
         <ul>
-          <li className="mb-4  border-b-2 border-slate-300">Terms of Use</li>
+          <li className="mb-4  border-b-2 border-slate-300">
+            {t("terms")}
+          </li>
         </ul>
         <ul>
-          <li className="mb-4  border-b-2 border-slate-300">Privacy</li>
+          <li className="mb-4  border-b-2 border-slate-300">{t("privacy")}</li>
         </ul>
       </div>
       <div>
         <select
-          className="text-slate-300 bg-black"
+          value={i18n.language}
+          className="text-slate-300 bg-black border-2 border-slate-300 cursor-pointer"
           onChange={(e) => changeLan(e.target.value)}
         >
           <option value="en">English</option>

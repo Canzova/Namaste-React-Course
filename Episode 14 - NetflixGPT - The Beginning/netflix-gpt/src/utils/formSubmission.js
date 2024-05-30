@@ -1,4 +1,4 @@
-export const formSubmission = (email, password) => {
+export const formSubmission = (t, email, password) => {
   // Check email
   const emailCheck = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/.test(
     email
@@ -10,9 +10,9 @@ export const formSubmission = (email, password) => {
       password
     );
 
-  if (!emailCheck) return "Please Enter a valid Email id";
+  if (!emailCheck) return t("email_code");
   if (!passwordCheck)
-    return "Password must conatin minimum eight characters, at least one letter, one number and one special character";
+    return t("pass_code");
 
   // If every thing is fine
   return null;
