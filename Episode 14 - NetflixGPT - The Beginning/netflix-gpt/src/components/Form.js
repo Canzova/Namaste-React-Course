@@ -1,6 +1,7 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { formSubmission } from "../utils/formSubmission";
 import { useTranslation } from "react-i18next";
+import friendlyErrorMessage from "../utils/errors";
 import { auth } from "../utils/firebase";
 import {
   createUserWithEmailAndPassword,
@@ -8,19 +9,24 @@ import {
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
+import { getLocalData, getLocalData2 } from "../utils/localStorage";
+
 const Form = () => {
   const [show, setShow] = useState(false);
-  const [signIn, setsignIn] = useState("Sign In");
+  const [signIn, setsignIn] = useState(getLocalData);
   const [errorMessage, seterrorMessage] = useState(null);
-  const [newNetflix, setnewNetflix] = useState([
-    "New to Netflix ?",
-    "Sign Up now.",
-  ]);
+  const [newNetflix, setnewNetflix] = useState(getLocalData2);
   const navigate = useNavigate();
 
   // Declring useRef
   const email = useRef();
   const password = useRef();
+
+  useEffect(() => {
+    // We can only store data into local storage in string format, hence we are converting our state varibales into string
+    localStorage.setItem("temp", JSON.stringify(signIn));
+    localStorage.setItem("temp2", JSON.stringify(newNetflix));
+  }, [signIn, newNetflix]);
 
   const hanldeOnclick = (e) => {
     e.preventDefault();
@@ -29,6 +35,7 @@ const Form = () => {
 
   const togglesignUp = () => {
     signIn === "Sign In" ? setsignIn("Sign Up") : setsignIn("Sign In");
+
     newNetflix[0] === "New to Netflix ?"
       ? setnewNetflix(["Already registered", "Sign In now."])
       : setnewNetflix(["New to Netflix ?", "Sign Up now."]);
@@ -40,11 +47,13 @@ const Form = () => {
     // console.log(email.current.value);
     // console.log(password.current.value);
     let data = null;
-    if (email.current.value.length !== 0) {
-      data = formSubmission(t, email.current.value, password.current.value);
+    if (signIn === "Sign Up") {
+      if (email.current.value.length !== 0) {
+        data = formSubmission(t, email.current.value, password.current.value);
+      }
+      //console.log(data);
+      seterrorMessage(data);
     }
-    //console.log(data);
-    seterrorMessage(data);
 
     if (data === null) {
       // Sign Up
@@ -56,14 +65,14 @@ const Form = () => {
         )
           .then((userCredential) => {
             // User Signed up
-            const user = userCredential.user;
-            //console.log(user);
+
             navigate("/browse");
           })
           .catch((error) => {
             const errorCode = error.code;
-            const errorMessage = error.message;
-            seterrorMessage(errorCode + " " + errorMessage);
+            //console.log(errorCode);
+            const message = friendlyErrorMessage(errorCode);
+            seterrorMessage(message);
           });
       } else {
         // Sign in
@@ -74,14 +83,14 @@ const Form = () => {
         )
           .then((userCredential) => {
             // User Signed in
-            const user = userCredential.user;
-            // console.log(user);
+
             navigate("/browse");
           })
           .catch((error) => {
             const errorCode = error.code;
-            const errorMessage = error.message;
-            seterrorMessage(errorCode + " " + errorMessage);
+            // console.log(errorCode);
+            const message = friendlyErrorMessage(errorCode);
+            seterrorMessage(message);
           });
       }
     }
@@ -162,7 +171,7 @@ const Form = () => {
               className="font-bold hover:border-b-2 border-white cursor-pointer"
               onClick={togglesignUp}
             >
-              {newNetflix[1] === "Sign up now"
+              {newNetflix[1] === "Sign Up now."
                 ? t("sign_up_now")
                 : t("sign_in_now") + " "}
             </span>
