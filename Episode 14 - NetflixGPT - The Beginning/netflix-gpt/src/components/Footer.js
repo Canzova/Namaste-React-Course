@@ -1,12 +1,11 @@
 import React from "react";
+
 import { useTranslation } from "react-i18next";
 const Footer = () => {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const changeLan = (lan) => {
     i18n.changeLanguage(lan);
   };
-
-  const { t } = useTranslation();
 
   return (
     <div className="h-[15rem] w-[100%] bg-black text-slate-300 p-12">

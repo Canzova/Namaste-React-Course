@@ -2,6 +2,8 @@ import { useState, useRef, useEffect } from "react";
 import { formSubmission } from "../utils/formSubmission";
 import { useTranslation } from "react-i18next";
 import friendlyErrorMessage from "../utils/errors";
+import { useDispatch } from "react-redux";
+import { updateProfile } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import {
   createUserWithEmailAndPassword,
@@ -10,6 +12,7 @@ import {
 import { useNavigate } from "react-router-dom";
 
 import { getLocalData, getLocalData2 } from "../utils/localStorage";
+import { addUser } from "../utils/userSlice";
 
 const Form = () => {
   const [show, setShow] = useState(false);
@@ -17,10 +20,12 @@ const Form = () => {
   const [errorMessage, seterrorMessage] = useState(null);
   const [newNetflix, setnewNetflix] = useState(getLocalData2);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   // Declring useRef
   const email = useRef();
   const password = useRef();
+  const name = useRef();
 
   useEffect(() => {
     // We can only store data into local storage in string format, hence we are converting our state varibales into string
@@ -43,15 +48,11 @@ const Form = () => {
 
   // Authentication
   const handleFormSubmission = (e) => {
-    //e.preventDefault();
-    // console.log(email.current.value);
-    // console.log(password.current.value);
     let data = null;
     if (signIn === "Sign Up") {
       if (email.current.value.length !== 0) {
         data = formSubmission(t, email.current.value, password.current.value);
       }
-      //console.log(data);
       seterrorMessage(data);
     }
 
@@ -65,12 +66,31 @@ const Form = () => {
         )
           .then((userCredential) => {
             // User Signed up
-
-            navigate("/browse");
+            const user = userCredential.user;
+            updateProfile(user, {
+              displayName: name.current.value,
+              photoURL:
+                "https://media.licdn.com/dms/image/D4D03AQEJoV-nDTxZdw/profile-displayphoto-shrink_200_200/0/1706959017181?e=1722470400&v=beta&t=ebBNAo16dOYi_4RqpwQaf_6Wt50FXpZc112SwT_iRMk",
+            })
+              .then(() => {
+                const { uid, email, displayName, photoURL } = auth.currentUser;
+                dispatch(
+                  addUser({
+                    uid: uid,
+                    email: email,
+                    name: displayName,
+                    photoURL: photoURL,
+                  })
+                );
+                navigate("/browse");
+              })
+              .catch((error) => {
+                console.log(error);
+              });
           })
           .catch((error) => {
             const errorCode = error.code;
-            //console.log(errorCode);
+
             const message = friendlyErrorMessage(errorCode);
             seterrorMessage(message);
           });
@@ -83,12 +103,10 @@ const Form = () => {
         )
           .then((userCredential) => {
             // User Signed in
-
             navigate("/browse");
           })
           .catch((error) => {
             const errorCode = error.code;
-            // console.log(errorCode);
             const message = friendlyErrorMessage(errorCode);
             seterrorMessage(message);
           });
@@ -114,6 +132,7 @@ const Form = () => {
             <input
               type="text"
               placeholder={t("name")}
+              ref={name}
               className="mb-2 p-2 bg-[#272936] border-[1px] border-white rounded-md w-[100%] h-12 outline-none"
               required
             />
