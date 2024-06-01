@@ -1,24 +1,12 @@
 import { useState, useRef, useEffect } from "react";
-import { formSubmission } from "../utils/formSubmission";
 import { useTranslation } from "react-i18next";
-import friendlyErrorMessage from "../utils/errors";
-import { useDispatch } from "react-redux";
-import { updateProfile } from "firebase/auth";
-import { auth } from "../utils/firebase";
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-} from "firebase/auth";
-
 import { getLocalData, getLocalData2 } from "../utils/localStorage";
-import { addUser } from "../utils/userSlice";
+import useFormSubmission from "../hooks/useFormSubmission";
 
 const Form = () => {
   const [show, setShow] = useState(false);
   const [signIn, setsignIn] = useState(getLocalData);
-  const [errorMessage, seterrorMessage] = useState(null);
   const [newNetflix, setnewNetflix] = useState(getLocalData2);
-  const dispatch = useDispatch();
 
   // Declring useRef
   const email = useRef();
@@ -45,70 +33,7 @@ const Form = () => {
   };
 
   // Authentication
-  const handleFormSubmission = (e) => {
-    let data = null;
-    if (signIn === "Sign Up") {
-      if (email.current.value.length !== 0) {
-        data = formSubmission(t, email.current.value, password.current.value);
-      }
-      seterrorMessage(data);
-    }
-
-    if (data === null) {
-      // Sign Up
-      if (signIn === "Sign Up") {
-        createUserWithEmailAndPassword(
-          auth,
-          email.current.value,
-          password.current.value
-        )
-          .then((userCredential) => {
-            // User Signed up
-            const user = userCredential.user;
-            updateProfile(user, {
-              displayName: name.current.value,
-              photoURL:
-                "https://media.licdn.com/dms/image/D4D03AQEJoV-nDTxZdw/profile-displayphoto-shrink_200_200/0/1706959017181?e=1722470400&v=beta&t=ebBNAo16dOYi_4RqpwQaf_6Wt50FXpZc112SwT_iRMk",
-            })
-              .then(() => {
-                const { uid, email, displayName, photoURL } = auth.currentUser;
-                dispatch(
-                  addUser({
-                    uid: uid,
-                    email: email,
-                    name: displayName,
-                    photoURL: photoURL,
-                  })
-                );
-              })
-              .catch((error) => {
-                console.log(error);
-              });
-          })
-          .catch((error) => {
-            const errorCode = error.code;
-
-            const message = friendlyErrorMessage(errorCode);
-            seterrorMessage(message);
-          });
-      } else {
-        // Sign in
-        signInWithEmailAndPassword(
-          auth,
-          email.current.value,
-          password.current.value
-        )
-          .then((userCredential) => {
-            // User Signed in
-          })
-          .catch((error) => {
-            const errorCode = error.code;
-            const message = friendlyErrorMessage(errorCode);
-            seterrorMessage(message);
-          });
-      }
-    }
-  };
+  const { errorMessage, handleFormSubmission } = useFormSubmission();
 
   const { t } = useTranslation();
 
@@ -162,7 +87,9 @@ const Form = () => {
           </div>
           <button
             className="rounded-md   mb-2 bg-[red] w-[100%] h-12 py-2 hover:bg-red-600 font-bold"
-            onClick={handleFormSubmission}
+            onClick={() => {
+              handleFormSubmission(signIn, email, password, name);
+            }}
           >
             {signIn === "Sign In" ? t("sign_in") : t("sign_up")}
           </button>
