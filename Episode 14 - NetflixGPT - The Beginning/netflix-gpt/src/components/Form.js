@@ -9,7 +9,6 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
 
 import { getLocalData, getLocalData2 } from "../utils/localStorage";
 import { addUser } from "../utils/userSlice";
@@ -19,7 +18,6 @@ const Form = () => {
   const [signIn, setsignIn] = useState(getLocalData);
   const [errorMessage, seterrorMessage] = useState(null);
   const [newNetflix, setnewNetflix] = useState(getLocalData2);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   // Declring useRef
@@ -82,7 +80,6 @@ const Form = () => {
                     photoURL: photoURL,
                   })
                 );
-                navigate("/browse");
               })
               .catch((error) => {
                 console.log(error);
@@ -103,7 +100,6 @@ const Form = () => {
         )
           .then((userCredential) => {
             // User Signed in
-            navigate("/browse");
           })
           .catch((error) => {
             const errorCode = error.code;
