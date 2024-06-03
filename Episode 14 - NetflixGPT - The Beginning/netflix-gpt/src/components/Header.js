@@ -58,12 +58,12 @@ const Header = () => {
       {user && (
         <div className="flex items-center">
           <img
-            className="h-12 w-12 mx-4 rounded-md"
+            className="h-10 w-10 mx-4 rounded-md"
             src={USER_LOGO}
             alt="user Logo"
           />
           <p
-            className="text-lg font-medium cursor-pointer z-10"
+            className="text-lg font-medium cursor-pointer z-10 text-white"
             onClick={signOutFun}
           >
             Sign Out

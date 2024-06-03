@@ -6,7 +6,7 @@ import SecondaeyContainer from "./SecondaryContainer";
 
 const Browse = () => {
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-x-hidden after:absolute after:inset-0 after:bg-black after:opacity-60">
       <Header />
       <MainContainer />
       <SecondaeyContainer />

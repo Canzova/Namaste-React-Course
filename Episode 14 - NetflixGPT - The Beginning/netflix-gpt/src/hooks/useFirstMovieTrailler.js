@@ -16,7 +16,7 @@ const useFirstMovieTrailler = (id) => {
     );
     const video = videos.length ? videos[0] : json.results[0];
     //console.log(video.key);
-    setKey(video.key);
+    setKey(video?.key);
   };
   useEffect(() => {
     getMovieTrailler();
