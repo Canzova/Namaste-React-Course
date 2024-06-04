@@ -1,14 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import MainMovie from "./MainMovie";
 import MovieInfo from "./MovieInfo";
-import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
 
-const MainContainer = () => {
-  const movie = useNowPlayingMovies();
-  //console.log(movie);
-  if (movie === null) {
-    return;
-  }
+
+const MainContainer = ({movie}) => {
+
   // USing Redux
   // const movies = useSelector((store) => store.movies?.nowPlayingMovies);
   

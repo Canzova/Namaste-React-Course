@@ -17,7 +17,7 @@ const useNowPlayingMovies = () => {
 
     const json = await data.json();
     //console.log(json.results);
-    setMovie(json.results[8]);
+    setMovie(json.results[1]);
     dispatch(addNowPlayingMovies(json.results));
     dispatch(addNowTraillerVideo(json.results[0]));
   };
