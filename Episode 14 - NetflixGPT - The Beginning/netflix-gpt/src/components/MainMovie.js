@@ -1,9 +1,11 @@
 import React from "react";
 import useFirstMovieTrailler from "../hooks/useFirstMovieTrailler";
 
+
 const MainMovie = ({ movie }) => {
   const id = movie?.id;
   const key = useFirstMovieTrailler(id);
+  
 
   if (key === null) return null;
 
