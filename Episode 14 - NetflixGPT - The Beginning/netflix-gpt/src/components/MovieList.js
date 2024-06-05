@@ -16,7 +16,7 @@ import "../swiper.css";
 const MovieList = ({ title, movies }) => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
-  
+
   const paginationRef = useRef(null);
   //console.log(movies[0]?.original_title);
   return (
@@ -49,10 +49,7 @@ const MovieList = ({ title, movies }) => {
           <div className="px-7">
             {movies?.map((movie) => (
               <SwiperSlide key={movie.id}>
-                <MovieCard
-                  posterUrl={movie?.poster_path}
-                  name={movie?.title}
-                />
+                <MovieCard name={movie?.title} movie={movie} />
               </SwiperSlide>
             ))}
           </div>

@@ -12,5 +12,6 @@ export const API_OPTIONS = {
       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2YzMwOTk4NzQ2ZmUwNzIxYzI5OTBiMWFjNzFhMTdjZiIsInN1YiI6IjY2NWNhMjU2ZDIzZjdmNGRmNDRlMzJiYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ._1QgbCX86wLuNF0vBJa12MYefpR56xHC9ySutqqYEvI",
   },
 };
+export const MOVIE_POSTER_URL2 = "https://image.tmdb.org/t/p/original";
 
 export const MOVIE_POSTER_URL = "https://image.tmdb.org/t/p/w500";
