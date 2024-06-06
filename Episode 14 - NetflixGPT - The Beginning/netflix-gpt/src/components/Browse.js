@@ -3,12 +3,17 @@ import React from "react";
 import MainContainer from "./MainContainer";
 import SecondaeyContainer from "./SecondaryContainer";
 import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
+import { useSelector } from "react-redux";
 
 const Browse = () => {
-  const movie = useNowPlayingMovies();
+  useNowPlayingMovies();
+  const movie = useSelector(store => store.movies.traillerVideo);
   //console.log(movie);
   if (movie === null) {
-    return;
+    return (<div>
+      waiting.....
+    </div>
+    );
   }
   return (
     <div className="overflow-x-hidden after:absolute after:inset-0 after:bg-black after:opacity-40">

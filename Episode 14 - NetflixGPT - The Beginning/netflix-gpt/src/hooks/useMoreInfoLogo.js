@@ -13,7 +13,7 @@ const useMoviesImages = (id) => {
     );
 
     const json = await data.json();
-    console.log(json?.logos);
+    //console.log(json?.logos);
     setmoreInfoPageLogo(json?.logos[0]?.file_path);
   };
 
