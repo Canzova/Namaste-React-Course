@@ -2,20 +2,17 @@ import React from "react";
 import useMoreInfoLogo from "../hooks/useMoreInfoLogo";
 import { MOVIE_POSTER_URL } from "../utils/constants";
 import Suggestions from "./Suggestions";
+import SecondaryContainer from "./SecondaryContainer";
 
 const MoreInfoText = ({ details }) => {
   const logoURL = useMoreInfoLogo(details?.id);
-  console.log(details?.genres);
+  //console.log(details?.genres);
   //const logoURL = useSelector((store) => store.movies.moreInfoPageLogo);
   const {
-    budget,
-    revenue,
     tagline,
-    vote_average,
-    runtime,
+
     genres,
-    origin_country,
-    original_language,
+
     title,
     original_title,
     overview,
@@ -49,7 +46,8 @@ const MoreInfoText = ({ details }) => {
           </div>
         </div>
       </div>
-      <Suggestions />
+      <Suggestions id={details?.id} />
+      {/* <SecondaryContainer /> */}
     </>
   );
 };
