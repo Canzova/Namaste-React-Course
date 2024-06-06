@@ -1,9 +1,9 @@
 import { API_OPTIONS } from "../utils/constants";
 import { useDispatch } from "react-redux";
-import { addNowPlayingMovieLogo } from "../utils/moviesSlice";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const useMoviesImages = (id) => {
+  const [moreInfoPageLogo, setmoreInfoPageLogo] = useState(null);
   const dispatch = useDispatch();
 
   const getNowPlayingMovies = async () => {
@@ -13,13 +13,15 @@ const useMoviesImages = (id) => {
     );
 
     const json = await data.json();
-    //console.log(json?.logos[0]?.file_path);
-    dispatch(addNowPlayingMovieLogo(json?.logos[0]?.file_path));
+    console.log(json?.logos);
+    setmoreInfoPageLogo(json?.logos[0]?.file_path);
   };
 
   useEffect(() => {
     getNowPlayingMovies();
   }, []);
+
+  return moreInfoPageLogo;
 };
 
 export default useMoviesImages;
