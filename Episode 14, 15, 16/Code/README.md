@@ -19,7 +19,12 @@ BingWave is your ultimate destination for immersive entertainment! 🎬 Dive int
 ### Screenshots
 📸 Check out the snapshots of our beautiful UI in action!
 
+![nf1](https://github.com/Canzova/Namaste-React-Course/assets/129614588/3ed24062-5108-4886-9af3-cca810db489a)
+![nf2](https://github.com/Canzova/Namaste-React-Course/assets/129614588/43f32ffc-afb4-4af6-a381-8d7619466e7d)
+
+
 ### Get Started
+
 1. Clone the repository
 2. Install dependencies using `npm install`
 3. Run the application with `npm start`
