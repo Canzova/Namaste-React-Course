@@ -1,25 +1,33 @@
 import Header from "./Header";
-import React from "react";
+import React, { useState } from "react";
 import MainContainer from "./MainContainer";
 import SecondaeyContainer from "./SecondaryContainer";
 import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
 import { useSelector } from "react-redux";
+import GptSearch from "./GptSearch";
 
 const Browse = () => {
   useNowPlayingMovies();
-  const movie = useSelector(store => store.movies.traillerVideo);
+  const movie = useSelector((store) => store.movies.traillerVideo);
+
+  const showGptSearch = useSelector((store) => store.gpt.show);
+
+
   //console.log(movie);
   if (movie === null) {
-    return (<div>
-      waiting.....
-    </div>
-    );
+    return <div>waiting.....</div>;
   }
   return (
-    <div className="overflow-x-hidden after:absolute after:inset-0 after:bg-black after:opacity-40">
+    <div className="overflow-x-hidden">
       <Header />
-      <MainContainer movie={movie} />
-      <SecondaeyContainer />
+      {showGptSearch ? (
+        <GptSearch />
+      ) : (
+        <>
+          <MainContainer movie={movie} />
+          <SecondaeyContainer />
+        </>
+      )}
     </div>
   );
 };

@@ -16,3 +16,15 @@ export const getLocalData2 = () => {
     return ["New to Netflix ?", "Sign Up now."];
   }
 };
+
+// import { useSelector } from "react-redux";
+// const show = useSelector((store) => store.gpt.show);
+
+export const showBrowaePage = () => {
+  const value = localStorage.getItem("showgptPage");
+  if (value) {
+    return JSON.parse(localStorage.getItem("showgptPage"));
+  } else {
+    return null;
+  }
+};

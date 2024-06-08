@@ -16,10 +16,11 @@ const Suggestions = ({ id }) => {
               className="w-[25rem] h-[14rem] overflow-hidden relative rounded-lg"
             >
               <iframe
-                className="h-full w-full aspect-video scale-[1.67]"
+                className="h-full w-full aspect-video scale-[1.67] relative"
                 src={`https://www.youtube.com/embed/${video}?autoplay=1&mute=1&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&disablekb=1&playsinline=1&loop=1&playlist=${video}&controls=0&fs=0&showinfo=0&disablekb=1`}
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; autoplay"
               ></iframe>
+              <div className="absolute z-40 bg-black bg-opacity-[30%] inset-0"></div>
             </div>
           );
         })}

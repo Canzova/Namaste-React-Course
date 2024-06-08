@@ -1,15 +1,24 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { addUser, removeUser } from "../utils/userSlice";
 import { NETF_LOGO, USER_LOGO } from "../utils/constants";
+import { toggleUser } from "../utils/gptSlice";
+import { showBrowaePage } from "../utils/localStorage";
+
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((Store) => Store.user);
-  //console.log(user);
+  const showGptSearch = useSelector((store) => store.gpt.show);
+  const [showgptPgae, setshowgptPgae] = useState(showBrowaePage);
+
+  const handleSearchBtnClick = () => {
+    dispatch(toggleUser());
+    setshowgptPgae(!showgptPgae);
+  };
 
   const signOutFun = () => {
     signOut(auth)
@@ -19,6 +28,8 @@ const Header = () => {
       .catch((error) => {
         console.log(error);
       });
+    handleSearchBtnClick();
+    setshowgptPgae(!showgptPgae);
   };
 
   //console.log("Header is rendered");
@@ -48,6 +59,10 @@ const Header = () => {
     return () => unsubscribe();
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem("showgptPage", showgptPgae);
+  }, [showgptPgae]);
+
   return (
     <div className="absolute top-0 px-40 z-30 flex justify-between items-center w-full">
       <img
@@ -57,6 +72,13 @@ const Header = () => {
       />
       {user && (
         <div className="flex items-center">
+          <button
+            className="text-lg font-medium cursor-pointer z-10 text-white bg-[#FF0000] py-2 px-3 rounded-lg"
+            onClick={handleSearchBtnClick}
+          >
+            {" "}
+            {showGptSearch ? "Browse" : "Search Gpt"}
+          </button>
           <img
             className="h-10 w-10 mx-4 rounded-md"
             src={USER_LOGO}
